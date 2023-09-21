@@ -27,8 +27,6 @@ const args = yargs(hideBin(process.argv)).options({
 prompts.override(args.argv);
 
 async function main() {
-  console.clear();
-
   const project = await prompts(
     [
       {

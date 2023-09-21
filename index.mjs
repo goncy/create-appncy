@@ -11,15 +11,15 @@ import {hideBin} from "yargs/helpers";
 
 // Specify CLI arguments
 const args = yargs(hideBin(process.argv)).options({
-  template: {
-    alias: "t",
-    type: "string",
-    description: "Template to use",
-  },
   name: {
     alias: "n",
     type: "string",
     description: "Name of the project",
+  },
+  template: {
+    alias: "t",
+    type: "string",
+    description: "Template to use",
   },
 });
 
@@ -31,17 +31,17 @@ async function main() {
 
   const project = await prompts([
     {
+      type: "text",
+      name: "name",
+      message: "What is the name of your project?",
+      initial: "appncy-project",
+    },
+    {
       type: "select",
       name: "template",
       message: `Which template would you like to use?`,
       initial: 0,
       choices: [{title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"}],
-    },
-    {
-      type: "text",
-      name: "name",
-      message: "What is the name of your project?",
-      initial: "appncy-project",
     },
   ]);
 

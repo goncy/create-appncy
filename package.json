@@ -10,9 +10,9 @@
   "author": "goncy",
   "license": "ISC",
   "dependencies": {
-    "@clack/core": "^0.3.3",
-    "@clack/prompts": "^0.7.0",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2",
+    "yargs": "^17.7.2"
   },
   "scripts": {
     "start": "node index.mjs"

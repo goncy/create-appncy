@@ -1,59 +1,51 @@
 #!/usr/bin/env node
 
-import { setTimeout } from 'node:timers/promises';
 import path from 'node:path'
 import { fileURLToPath } from 'node:url';
-import { cp } from 'node:fs/promises';
+import { cp } from 'node:fs';
 import color from 'picocolors';
-import * as p from '@clack/prompts';
+import prompts from 'prompts'
+import yargs from 'yargs'
+import {hideBin} from 'yargs/helpers'
+
+// Orverride arguments passed on the CLI
+prompts.override(yargs(hideBin(process.argv)).argv)
 
 async function main() {
 	console.clear();
 
-	await setTimeout(1000);
-
-	p.intro(`${color.bgCyan(color.black(' create-appncy '))}`);
-
-	const project = await p.group(
-		{
-			template: () =>
-				p.select({
-					message: `Which template would you like to use?`,
-					initialValue: 'next-eslint-ts-tw',
-					options: [
-						{ value: 'next-eslint-ts-tw', label: 'Next.js + ESLint + TypeScript + Tailwind' },
-					],
-				}),
-			path: () =>
-				p.text({
-					message: 'What is the name of your project?',
-					placeholder: 'appncy-project',
-					defaultValue: 'appncy-project',
-				}),
+	const project = await prompts(
+		[{
+			type: 'select',
+			name: 'template',
+			message: `Which template would you like to use?`,
+			initial: 0,
+			choices: [
+				{ title: 'Next.js + ESLint + TypeScript + Tailwind', value: 'next-eslint-ts-tw' },
+			],
 		},
 		{
-			onCancel: () => {
-				p.cancel('Operation cancelled.');
-				process.exit(0);
-			},
-		}
+			type: 'text',
+			name: 'path',
+			message: 'Where should be the project created?',
+			initial: './appncy-project',
+		}]
 	);
 
-	const s = p.spinner();
-
-	s.start('Creating project');
-
-	await cp(
+	// Copy files from the template folder to the current directory
+	cp(
 		path.join(path.dirname(fileURLToPath(import.meta.url)), 'templates', project.template),
 		path.join(process.cwd(), project.path),
 		{ recursive: true }
 	)
 
-	s.stop('Project created');
-
-	p.note(`cd ${project.path}\npnpm install\npnpm dev`, 'Next steps.');
-
-	p.outro(`Questions? ${color.underline(color.cyan('https://x.com/goncy'))}`);
+	console.log('✨ Project created ✨');
+	console.log(`\n${color.yellow(`Next steps:`)}\n`);
+	console.log(`${color.green(`cd`)} ${project.path}`);
+	console.log(`${color.green(`pnpm`)} install`);
+	console.log(`${color.green(`pnpm`)} dev`);
+	console.log('\n---\n')
+	console.log(`Questions 👀? ${color.underline(color.cyan('https://x.com/goncy'))}`);
 }
 
 main().catch(console.error);

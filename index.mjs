@@ -8,8 +8,22 @@ import prompts from "prompts";
 import yargs from "yargs";
 import {hideBin} from "yargs/helpers";
 
+// Specify CLI arguments
+const args = yargs(hideBin(process.argv)).options({
+  template: {
+    alias: "t",
+    type: "string",
+    description: "Template to use",
+  },
+  path: {
+    alias: "p",
+    type: "string",
+    description: "Path to create the project",
+  },
+});
+
 // Orverride arguments passed on the CLI
-prompts.override(yargs(hideBin(process.argv)).argv);
+prompts.override(args.argv);
 
 async function main() {
   console.clear();

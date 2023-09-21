@@ -29,21 +29,30 @@ prompts.override(args.argv);
 async function main() {
   console.clear();
 
-  const project = await prompts([
+  const project = await prompts(
+    [
+      {
+        type: "text",
+        name: "name",
+        message: "What is the name of your project?",
+        initial: "appncy-project",
+      },
+      {
+        type: "select",
+        name: "template",
+        message: `Which template would you like to use?`,
+        initial: 0,
+        choices: [{title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"}],
+      },
+    ],
     {
-      type: "text",
-      name: "name",
-      message: "What is the name of your project?",
-      initial: "appncy-project",
+      onCancel: () => {
+        console.log("\nBye 👋\n");
+
+        process.exit(0);
+      },
     },
-    {
-      type: "select",
-      name: "template",
-      message: `Which template would you like to use?`,
-      initial: 0,
-      choices: [{title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"}],
-    },
-  ]);
+  );
 
   const template = path.join(
     path.dirname(fileURLToPath(import.meta.url)),

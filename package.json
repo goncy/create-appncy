@@ -1,0 +1,21 @@
+{
+  "name": "create-appncy",
+  "version": "1.0.0",
+  "description": "Create projects as goncy would",
+  "main": "index.mjs",
+  "bin": {
+    "create-appncy": "index.mjs"
+  },
+  "keywords": [],
+  "author": "goncy",
+  "license": "ISC",
+  "dependencies": {
+    "@clack/core": "^0.3.3",
+    "@clack/prompts": "^0.7.0",
+    "picocolors": "^1.0.0",
+    "plop": "^4.0.0"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}

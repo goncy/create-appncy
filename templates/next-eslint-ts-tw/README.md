@@ -1,4 +1,4 @@
-## Getting Started
+## Getting Started with {{name}}
 
 First, run the development server:
 

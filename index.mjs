@@ -2,7 +2,8 @@
 
 import path from "node:path";
 import {fileURLToPath} from "node:url";
-import {cp} from "node:fs";
+import {cp, readFile, writeFile} from "node:fs/promises";
+import {glob} from "glob";
 import color from "picocolors";
 import prompts from "prompts";
 import yargs from "yargs";
@@ -15,10 +16,10 @@ const args = yargs(hideBin(process.argv)).options({
     type: "string",
     description: "Template to use",
   },
-  path: {
-    alias: "p",
+  name: {
+    alias: "n",
     type: "string",
-    description: "Path to create the project",
+    description: "Name of the project",
   },
 });
 
@@ -38,22 +39,37 @@ async function main() {
     },
     {
       type: "text",
-      name: "path",
-      message: "Where should be the project created?",
-      initial: "./appncy-project",
+      name: "name",
+      message: "What is the name of your project?",
+      initial: "appncy-project",
     },
   ]);
 
-  // Copy files from the template folder to the current directory
-  cp(
-    path.join(path.dirname(fileURLToPath(import.meta.url)), "templates", project.template),
-    path.join(process.cwd(), project.path),
-    {recursive: true},
+  const template = path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "templates",
+    project.template,
   );
+  const destination = path.join(process.cwd(), project.name);
 
+  // Copy files from the template folder to the current directory
+  await cp(template, destination, {recursive: true});
+
+  // Get all files from the destination folder
+  const files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});
+
+  // Read each file and replace the tokens
+  for await (const file of files) {
+    const data = await readFile(file, "utf8");
+    const draft = data.replace(/{{name}}/g, project.name);
+
+    await writeFile(file, draft, "utf8");
+  }
+
+  // Log outro message
   console.log("✨ Project created ✨");
   console.log(`\n${color.yellow(`Next steps:`)}\n`);
-  console.log(`${color.green(`cd`)} ${project.path}`);
+  console.log(`${color.green(`cd`)} ${project.name}`);
   console.log(`${color.green(`pnpm`)} install`);
   console.log(`${color.green(`pnpm`)} dev`);
   console.log("\n---\n");

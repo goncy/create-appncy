@@ -17,8 +17,8 @@ pnpm create appncy
 # Override template
 pnpm create appncy --template <template>
 
-# Override path
-pnpm create appncy --path <path>
+# Override name
+pnpm create appncy --name <name>
 
 # Get Command help
 pnpm create appncy --help

@@ -46,7 +46,10 @@ async function main() {
         name: "template",
         message: `Which template would you like to use?`,
         initial: 0,
-        choices: [{title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"}],
+        choices: [
+          {title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"},
+          {title: "React (vite) + ESLint + TypeScript + Tailwind", value: "react-eslint-ts-tw"}
+        ],
       },
     ],
     {

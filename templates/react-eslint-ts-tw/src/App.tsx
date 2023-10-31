@@ -7,7 +7,7 @@ function App() {
         © {new Date().getFullYear()} {{name}}
       </footer>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

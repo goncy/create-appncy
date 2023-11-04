@@ -1,12 +1,7 @@
 import type { Metadata } from 'next';
-
-<<<<<<< HEAD:dist/templates/next-eslint-ts-shadcn/project/src/app/layout.tsx
 import Link from "next/link"
 
 import "./globals.css";
-=======
-import './globals.css';
->>>>>>> d8cddd5 (Updated eslint):templates/next-eslint-ts-tw/src/app/layout.tsx
 
 export const metadata: Metadata = {
   title: '{{name}}',

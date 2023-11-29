@@ -6,6 +6,10 @@
   "bin": {
     "create-appncy": "index.mjs"
   },
+  "files": [
+    "index.mjs",
+    "templates"
+  ],
   "keywords": [],
   "author": "goncy",
   "license": "ISC",

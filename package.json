@@ -8,7 +8,7 @@
   },
   "files": [
     "index.mjs",
-    "templates"
+    "templates/**/*"
   ],
   "keywords": [],
   "author": "goncy",

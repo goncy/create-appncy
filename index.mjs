@@ -48,7 +48,8 @@ async function main() {
         initial: 0,
         choices: [
           {title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"},
-          {title: "React (vite) + ESLint + TypeScript + Tailwind", value: "react-eslint-ts-tw"}
+          {title: "Next.js + ESLint + TypeScript + Shadcn/ui", value: "next-eslint-ts-shadcn"},
+          {title: "React (vite) + ESLint + TypeScript + Tailwind", value: "react-eslint-ts-tw"},
         ],
       },
     ],

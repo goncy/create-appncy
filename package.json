@@ -1,6 +1,6 @@
 {
   "name": "create-appncy",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Create projects as goncy would",
   "main": "index.mjs",
   "bin": {

@@ -33,7 +33,7 @@ async function main() {
         type: "text",
         name: "name",
         message: "What is the name of your project?",
-        initial: "appncy-project",
+        initial: args.argv._[0] || "appncy-project",
         validate: (value) => {
           if (value.match(/[^a-zA-Z0-9-_]+/g))
             return "Project name can only contain letters, numbers, dashes and underscores";
@@ -45,7 +45,7 @@ async function main() {
         type: "select",
         name: "template",
         message: `Which template would you like to use?`,
-        initial: 0,
+        initial: args.argv._[1] || 0,
         choices: [
           {title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"},
           {title: "Next.js + ESLint + TypeScript + Shadcn/ui", value: "next-eslint-ts-shadcn"},

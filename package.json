@@ -2,15 +2,20 @@
   "name": "create-appncy",
   "version": "1.0.17",
   "description": "Create projects as goncy would",
-  "main": "index.mjs",
   "bin": {
-    "create-appncy": "index.mjs"
+    "create-appncy": "dist/index.js"
   },
   "files": [
-    "index.mjs",
+    "dist",
     "templates/**/*"
   ],
-  "keywords": [],
+  "keywords": [
+    "react",
+    "goncy",
+    "next.js",
+    "shadcn",
+    "tailwindcss"
+  ],
   "author": "goncy",
   "license": "ISC",
   "dependencies": {
@@ -20,9 +25,13 @@
     "yargs": "^17.7.2"
   },
   "scripts": {
-    "start": "node index.mjs"
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "dev": "tsup --watch"
   },
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
   }
 }

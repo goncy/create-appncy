@@ -9,6 +9,36 @@ import prompts from "prompts";
 import yargs from "yargs";
 import {hideBin} from "yargs/helpers";
 
+// List of templates
+const TEMPLATES = [
+  {
+    title: "Next.js + ESLint + TypeScript + Shadcn/ui",
+    value: "next-eslint-ts-shadcn",
+  },
+  {
+    title: "Next.js + ESLint + TypeScript + Tailwind",
+    value: "next-eslint-ts-tw",
+  },
+  {
+    title: "React (vite) + ESLint + TypeScript + Tailwind",
+    value: "react-eslint-ts-tw",
+  },
+];
+
+// List of extras
+const EXTRAS = {
+  "next-eslint-ts-shadcn": [
+    {
+      title: "Mercado Pago",
+      value: "mercadopago",
+    },
+    {
+      title: "Clerk Auth",
+      value: "clerk",
+    },
+  ],
+};
+
 // Specify CLI arguments
 const args = yargs(hideBin(process.argv)).options({
   name: {
@@ -34,23 +64,19 @@ async function main() {
         name: "name",
         message: "What is the name of your project?",
         initial: args.argv._[0] || "appncy-project",
-        validate: (value) => {
-          if (value.match(/[^a-zA-Z0-9-_]+/g))
-            return "Project name can only contain letters, numbers, dashes and underscores";
+        // validate: (value) => {
+        //   if (value.match(/[^a-zA-Z0-9-_]+/g))
+        //     return "Project name can only contain letters, numbers, dashes and underscores";
 
-          return true;
-        },
+        //   return true;
+        // },
       },
       {
         type: "select",
         name: "template",
         message: `Which template would you like to use?`,
         initial: args.argv._[1] || 0,
-        choices: [
-          {title: "Next.js + ESLint + TypeScript + Tailwind", value: "next-eslint-ts-tw"},
-          {title: "Next.js + ESLint + TypeScript + Shadcn/ui", value: "next-eslint-ts-shadcn"},
-          {title: "React (vite) + ESLint + TypeScript + Tailwind", value: "react-eslint-ts-tw"},
-        ],
+        choices: TEMPLATES,
       },
     ],
     {
@@ -67,14 +93,29 @@ async function main() {
     path.dirname(fileURLToPath(import.meta.url)),
     "templates",
     project.template,
-    "project",
   );
 
   // Get the destination folder for the project
   const destination = path.join(process.cwd(), project.name);
 
   // Copy files from the template folder to the current directory
-  await cp(template, destination, {recursive: true});
+  await cp(path.join(template, "project"), destination, {recursive: true});
+
+  // Get the extras for the selected template
+  if (EXTRAS[project.template]) {
+    const {extras} = await prompts({
+      type: "multiselect",
+      name: "extras",
+      message: "Which extras would you like to add?",
+      instructions: false,
+      choices: EXTRAS[project.template],
+    });
+
+    for await (const extra of extras) {
+      // Copy files from the extra folder to the current directory
+      await cp(path.join(template, "extras", extra), destination, {recursive: true});
+    }
+  }
 
   // Get all files from the destination folder
   const files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});

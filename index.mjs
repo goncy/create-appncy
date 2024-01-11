@@ -62,11 +62,15 @@ async function main() {
     },
   );
 
+  // Get the template folder for the selected template
   const template = path.join(
     path.dirname(fileURLToPath(import.meta.url)),
     "templates",
     project.template,
+    "project",
   );
+
+  // Get the destination folder for the project
   const destination = path.join(process.cwd(), project.name);
 
   // Copy files from the template folder to the current directory

@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "@types/prompts": "^2.4.9",
+    "@types/yargs": "^17.0.32",
     "prettier": "^3.0.3",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"

@@ -26,7 +26,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var getImportMetaUrl = () => typeof document === "undefined" ? new URL("file:" + __filename).href : document.currentScript && document.currentScript.src || new URL("main.js", document.baseURI).href;
 var importMetaUrl = /* @__PURE__ */ getImportMetaUrl();
 
-// src/index.ts
+// index.ts
 var import_node_path = __toESM(require("path"));
 var import_node_url = require("url");
 var import_promises = require("fs/promises");
@@ -75,24 +75,27 @@ var args = (0, import_yargs.default)((0, import_helpers.hideBin)(process.argv)).
 });
 import_prompts.default.override(args.argv);
 async function main() {
+  const {
+    _: [initialName, initialProject]
+  } = await args.argv;
   const project = await (0, import_prompts.default)(
     [
       {
         type: "text",
         name: "name",
         message: "What is the name of your project?",
-        initial: args.argv._[0] || "appncy-project"
-        // validate: (value) => {
-        //   if (value.match(/[^a-zA-Z0-9-_]+/g))
-        //     return "Project name can only contain letters, numbers, dashes and underscores";
-        //   return true;
-        // },
+        initial: initialName || "appncy-project",
+        validate: (value) => {
+          if (value.match(/[^a-zA-Z0-9-_]+/g))
+            return "Project name can only contain letters, numbers, dashes and underscores";
+          return true;
+        }
       },
       {
         type: "select",
         name: "template",
         message: `Which template would you like to use?`,
-        initial: args.argv._[1] || 0,
+        initial: initialProject || 0,
         choices: TEMPLATES
       }
     ],
@@ -110,14 +113,16 @@ async function main() {
   );
   const destination = import_node_path.default.join(process.cwd(), project.name);
   await (0, import_promises.cp)(import_node_path.default.join(template, "project"), destination, { recursive: true });
+  let extras = [];
   if (EXTRAS[project.template]) {
-    const { extras } = await (0, import_prompts.default)({
+    const { extras: results } = await (0, import_prompts.default)({
       type: "multiselect",
       name: "extras",
       message: "Which extras would you like to add?",
       instructions: false,
       choices: EXTRAS[project.template]
     });
+    extras = results;
     for await (const extra of extras) {
       await (0, import_promises.cp)(import_node_path.default.join(template, "extras", extra), destination, { recursive: true });
     }
@@ -128,13 +133,21 @@ async function main() {
     const draft = data.replace(/{{name}}/g, project.name);
     await (0, import_promises.writeFile)(file, draft, "utf8");
   }
-  console.log("\u2728 Project created \u2728");
+  console.log("\n\u2728 Project created \u2728");
   console.log(`
 ${import_picocolors.default.yellow(`Next steps:`)}
 `);
   console.log(`${import_picocolors.default.green(`cd`)} ${project.name}`);
   console.log(`${import_picocolors.default.green(`pnpm`)} install`);
   console.log(`${import_picocolors.default.green(`pnpm`)} dev`);
+  if (extras.length) {
+    console.log(
+      `
+Check out the ${import_picocolors.default.italic("README.md")} file inside ${import_picocolors.default.green(
+        extras.join(", ")
+      )} for more info on how to use it.`
+    );
+  }
   console.log("\n---\n");
   console.log(`Questions \u{1F440}? ${import_picocolors.default.underline(import_picocolors.default.cyan("https://x.com/goncy"))}`);
 }

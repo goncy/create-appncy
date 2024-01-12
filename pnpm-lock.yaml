@@ -25,6 +25,9 @@ devDependencies:
   '@types/prompts':
     specifier: ^2.4.9
     version: 2.4.9
+  '@types/yargs':
+    specifier: ^17.0.32
+    version: 17.0.32
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
@@ -431,6 +434,16 @@ packages:
     dependencies:
       '@types/node': 20.11.0
       kleur: 3.0.3
+    dev: true
+
+  /@types/yargs-parser@21.0.3:
+    resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
+    dev: true
+
+  /@types/yargs@17.0.32:
+    resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
+    dependencies:
+      '@types/yargs-parser': 21.0.3
     dev: true
 
   /ansi-regex@5.0.1:

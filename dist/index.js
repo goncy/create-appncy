@@ -58,6 +58,24 @@ var EXTRAS = {
     {
       title: "Clerk Auth",
       value: "clerk"
+    },
+    {
+      title: "Supabase",
+      value: "supabase"
+    }
+  ],
+  "next-eslint-ts-tw": [
+    {
+      title: "Mercado Pago",
+      value: "mercadopago"
+    },
+    {
+      title: "Clerk Auth",
+      value: "clerk"
+    },
+    {
+      title: "Supabase",
+      value: "supabase"
     }
   ]
 };

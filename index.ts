@@ -37,6 +37,10 @@ const EXTRAS = {
       value: "clerk",
     },
     {
+      title: "Auth0",
+      value: "auth0",
+    },
+    {
       title: "Supabase",
       value: "supabase",
     },
@@ -49,6 +53,10 @@ const EXTRAS = {
     {
       title: "Clerk Auth",
       value: "clerk",
+    },
+    {
+      title: "Auth0",
+      value: "auth0",
     },
     {
       title: "Supabase",

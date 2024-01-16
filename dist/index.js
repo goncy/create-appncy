@@ -60,6 +60,10 @@ var EXTRAS = {
       value: "clerk"
     },
     {
+      title: "Auth0",
+      value: "auth0"
+    },
+    {
       title: "Supabase",
       value: "supabase"
     }
@@ -72,6 +76,10 @@ var EXTRAS = {
     {
       title: "Clerk Auth",
       value: "clerk"
+    },
+    {
+      title: "Auth0",
+      value: "auth0"
     },
     {
       title: "Supabase",

@@ -2,12 +2,6 @@
 
 Create projects as Goncy would.
 
-## Installation
-
-```bash
-pnpm install -g appncy
-```
-
 ## Usage
 
 ```bash
@@ -22,6 +16,12 @@ pnpm create appncy --name <name>
 
 # Get Command help
 pnpm create appncy --help
+```
+
+## Installation
+
+```bash
+pnpm install -g create-appncy
 ```
 
 ## Questions?

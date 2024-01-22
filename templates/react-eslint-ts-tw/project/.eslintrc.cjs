@@ -17,15 +17,17 @@ module.exports = {
     "prettier/prettier": [
       "warn",
       {
-        "printWidth": 100,
-        "trailingComma": "all",
-        "tabWidth": 2,
-        "semi": true,
-        "singleQuote": false,
-        "bracketSpacing": false,
-        "arrowParens": "always",
-        "endOfLine":"auto",
-        "plugins": ["prettier-plugin-tailwindcss"],
+        printWidth: 120,
+        trailingComma: 'none',
+        tabWidth: 2,
+        semi: true,
+        singleQuote: true,
+        bracketSpacing: true,
+        trimTrailingWhitespace: true,
+        arrowParens: 'always',
+        endOfLine: 'auto',
+        "plugins": ['prettier-plugin-tailwindcss'],
+
       }
     ],
     "import/order": ["warn", {
@@ -47,11 +49,23 @@ module.exports = {
         "reservedFirst": true
       }
     ],
-    "padding-line-between-statements": [
-      "warn",
-      {"blankLine": "always", "prev": "*", "next": "return"},
-      {"blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
-      {"blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+    'react/self-closing-comp': 'warn',
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        noSortAlphabetically: false,
+        reservedFirst: true
+      }
+    ],
+    'padding-line-between-statements': [
+      'warn',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var']
+      }
     ]
   },
 }

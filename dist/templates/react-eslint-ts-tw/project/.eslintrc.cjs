@@ -24,7 +24,8 @@ module.exports = {
         "singleQuote": false,
         "bracketSpacing": false,
         "arrowParens": "always",
-        "endOfLine":"auto"
+        "endOfLine":"auto",
+        "plugins": ["prettier-plugin-tailwindcss"],
       }
     ],
     "import/order": ["warn", {

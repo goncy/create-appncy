@@ -16,9 +16,10 @@ module.exports = {
         semi: true,
         singleQuote: true,
         bracketSpacing: true,
+        trimTrailingWhitespace: true,
         arrowParens: 'always',
         endOfLine: 'auto',
-        "plugins": ['prettier-plugin-tailwindcss'],
+        plugins: ['prettier-plugin-tailwindcss']
       }
     ],
     'import/order': [
@@ -45,11 +46,23 @@ module.exports = {
         reservedFirst: true
       }
     ],
+    'react/self-closing-comp': 'warn',
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        noSortAlphabetically: false,
+        reservedFirst: true
+      }
+    ],
     'padding-line-between-statements': [
       'warn',
-      { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] }
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var']
+      }
     ]
   }
 };

@@ -26,12 +26,12 @@ module.exports = {
     'prettier/prettier': [
       'warn',
       {
-        printWidth: 120,
-        trailingComma: 'none',
+        printWidth: 100,
+        trailingComma: 'all',
         tabWidth: 2,
         semi: true,
-        singleQuote: true,
-        bracketSpacing: true,
+        singleQuote: false,
+        bracketSpacing: false,
         arrowParens: 'always',
         endOfLine: 'auto',
         plugins: ['prettier-plugin-tailwindcss']

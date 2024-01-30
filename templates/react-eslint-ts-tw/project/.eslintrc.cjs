@@ -1,21 +1,14 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ["react", 'react-refresh', "prettier", "import"],
+  plugins: ['react', 'react-refresh', 'prettier', 'import'],
   rules: {
-    'react-refresh/only-export-components': [
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'prettier/prettier': [
       'warn',
-      { allowConstantExport: true },
-    ],
-    "prettier/prettier": [
-      "warn",
       {
         printWidth: 120,
         trailingComma: 'none',
@@ -26,27 +19,31 @@ module.exports = {
         trimTrailingWhitespace: true,
         arrowParens: 'always',
         endOfLine: 'auto',
-        "plugins": ['prettier-plugin-tailwindcss'],
-
+        plugins: ['prettier-plugin-tailwindcss']
       }
     ],
-    "import/order": ["warn", {
-      "groups": ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
-      "pathGroups": [{
-        "pattern": "~/**",
-        "group": "external",
-        "position": "after"
-      }],
-      "newlines-between": "always"
-    }],
-    "react/self-closing-comp": "warn",
-    "react/jsx-sort-props": [
-      "warn",
+    'import/order': [
+      'warn',
       {
-        "callbacksLast": true,
-        "shorthandFirst": true,
-        "noSortAlphabetically": false,
-        "reservedFirst": true
+        groups: ['type', 'builtin', 'object', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroups: [
+          {
+            pattern: '~/**',
+            group: 'external',
+            position: 'after'
+          }
+        ],
+        'newlines-between': 'always'
+      }
+    ],
+    'react/self-closing-comp': 'warn',
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        noSortAlphabetically: false,
+        reservedFirst: true
       }
     ],
     'react/self-closing-comp': 'warn',
@@ -67,5 +64,5 @@ module.exports = {
         prev: ['const', 'let', 'var']
       }
     ]
-  },
-}
+  }
+};

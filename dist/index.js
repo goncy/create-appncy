@@ -152,7 +152,6 @@ async function main() {
       type: "multiselect",
       name: "extras",
       message: "Which extras would you like to add?",
-      instructions: false,
       choices: EXTRAS[project.template]
     });
     extras = results;
@@ -177,8 +176,8 @@ ${import_picocolors.default.yellow(`Next steps:`)}
   if (extras.length) {
     console.log(
       `
-Check out the ${import_picocolors.default.italic("README.md")} file inside ${import_picocolors.default.green(
-        extras.join(", ")
+Check out ${import_picocolors.default.italic(
+        extras.map((extra) => `${extra.toUpperCase()}.md`).join(", ")
       )} for more info on how to use it.`
     );
   }

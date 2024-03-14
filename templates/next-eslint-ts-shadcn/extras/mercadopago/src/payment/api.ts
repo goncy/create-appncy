@@ -8,7 +8,7 @@ const api = {
   prepare: async (body: PreferenceRequest) => {
     const preference = await new Preference(mercadopago).create({body});
 
-    return preference.sandbox_init_point!;
+    return preference.init_point!;
   },
   validate: async (id: string) => {
     await new Payment(mercadopago).get({id});

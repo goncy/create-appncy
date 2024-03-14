@@ -146,7 +146,6 @@ async function main() {
       type: "multiselect",
       name: "extras",
       message: "Which extras would you like to add?",
-      instructions: false,
       choices: EXTRAS[project.template],
     });
 
@@ -183,8 +182,8 @@ async function main() {
   // Extras log
   if (extras.length) {
     console.log(
-      `\nCheck out the ${color.italic("README.md")} file inside ${color.green(
-        extras.join(", "),
+      `\nCheck out ${color.italic(
+        extras.map((extra) => `${extra.toUpperCase()}.md`).join(", "),
       )} for more info on how to use it.`,
     );
   }

@@ -29,8 +29,6 @@ Run the push command to let Drizzle create the tables:
 ```bash
 pnpm drizzle-kit push:sqlite
 ```
-> [!WARNING]
-> If you get a `Transforming const to the configured target environment ("es5") is not supported yet` error, ensure the `target` in your `tsconfig.json` is set to at least `es6`.
 
 Ensure to run this command anytime your schema changes.
 

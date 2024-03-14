@@ -66,6 +66,10 @@ var EXTRAS = {
     {
       title: "Supabase",
       value: "supabase"
+    },
+    {
+      title: "libSQL + Drizzle",
+      value: "libsql"
     }
   ],
   "next-eslint-ts-tw": [
@@ -84,6 +88,10 @@ var EXTRAS = {
     {
       title: "Supabase",
       value: "supabase"
+    },
+    {
+      title: "libSQL + Drizzle",
+      value: "libsql"
     }
   ]
 };
@@ -138,7 +146,6 @@ async function main() {
     project.template
   );
   const destination = import_node_path.default.join(process.cwd(), project.name);
-  await (0, import_promises.cp)(import_node_path.default.join(template, "project"), destination, { recursive: true });
   let extras = [];
   if (EXTRAS[project.template]) {
     const { extras: results } = await (0, import_prompts.default)({
@@ -149,9 +156,10 @@ async function main() {
       choices: EXTRAS[project.template]
     });
     extras = results;
-    for await (const extra of extras) {
-      await (0, import_promises.cp)(import_node_path.default.join(template, "extras", extra), destination, { recursive: true });
-    }
+  }
+  await (0, import_promises.cp)(import_node_path.default.join(template, "project"), destination, { recursive: true });
+  for await (const extra of extras) {
+    await (0, import_promises.cp)(import_node_path.default.join(template, "extras", extra), destination, { recursive: true });
   }
   const files = await (0, import_glob.glob)(`**/*`, { nodir: true, cwd: destination, absolute: true });
   for await (const file of files) {

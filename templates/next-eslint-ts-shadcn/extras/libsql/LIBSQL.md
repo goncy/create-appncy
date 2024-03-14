@@ -29,8 +29,7 @@ Run the push command to let Drizzle create the tables:
 ```bash
 pnpm drizzle-kit push:sqlite
 ```
-
-Ensure to run this command anytime your schema changes.
+> Run this command anytime your schema changes.
 
 ## 4. Run Drizzle studio
 Let's add some data using Drizzle Studio:
@@ -48,11 +47,11 @@ import db from "@/db";
 import {todos} from "@/db/schema";
 
 export default async function HomePage() {
-  const todos = db.select().from(todos).all();
+  const data = db.select().from(todos).all();
 
   return (
     <ul>
-      {todos.map((todo) => (
+      {data.map((todo) => (
         <li key={String(todo.id)} style={{textDecoration: todo.done ? "line-through" : "none"}}>
           {todo.text}
         </li>

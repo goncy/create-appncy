@@ -44,6 +44,10 @@ const EXTRAS = {
       title: "Supabase",
       value: "supabase",
     },
+    {
+      title: "libSQL + Drizzle",
+      value: "libsql",
+    },
   ],
   "next-eslint-ts-tw": [
     {
@@ -61,6 +65,10 @@ const EXTRAS = {
     {
       title: "Supabase",
       value: "supabase",
+    },
+    {
+      title: "libSQL + Drizzle",
+      value: "libsql",
     },
   ],
 };
@@ -130,9 +138,6 @@ async function main() {
   // Get the destination folder for the project
   const destination = path.join(process.cwd(), project.name);
 
-  // Copy files from the template folder to the current directory
-  await cp(path.join(template, "project"), destination, {recursive: true});
-
   // Get the extras for the selected template
   let extras: string[] = [];
 
@@ -147,11 +152,14 @@ async function main() {
 
     // Assign to variable
     extras = results;
+  }
 
-    for await (const extra of extras) {
-      // Copy files from the extra folder to the current directory
-      await cp(path.join(template, "extras", extra), destination, {recursive: true});
-    }
+  // Copy files from the template folder to the current directory
+  await cp(path.join(template, "project"), destination, {recursive: true});
+
+  for await (const extra of extras) {
+    // Copy files from the extra folder to the current directory
+    await cp(path.join(template, "extras", extra), destination, {recursive: true});
   }
 
   // Get all files from the destination folder

@@ -1,4 +1,4 @@
-# DB module
+# Supabase DB module
 Instructions on how to setup db on the app.
 
 ## 1. Create the Supabase project
@@ -19,7 +19,7 @@ pnpm add @supabase/supabase-js
 ```
 
 ## 3. Generate the types
-Runn the `gen types` command in your terminal specifying the project id:
+Run the `gen types` command in your terminal specifying the project id:
 
 ```bash
 pnpx supabase login

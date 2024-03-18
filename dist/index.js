@@ -56,6 +56,10 @@ var EXTRAS = {
       value: "mercadopago"
     },
     {
+      title: "Kinde Auth",
+      value: "kinde"
+    },
+    {
       title: "Clerk Auth",
       value: "clerk"
     },
@@ -76,6 +80,10 @@ var EXTRAS = {
     {
       title: "Mercado Pago",
       value: "mercadopago"
+    },
+    {
+      title: "Kinde Auth",
+      value: "kinde"
     },
     {
       title: "Clerk Auth",

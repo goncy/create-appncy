@@ -1,4 +1,4 @@
-# Auth module
+# Clerk auth module
 Instructions on how to setup auth on the app.
 
 ## 1. Create the clerk project

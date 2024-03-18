@@ -33,6 +33,10 @@ const EXTRAS = {
       value: "mercadopago",
     },
     {
+      title: "Kinde Auth",
+      value: "kinde",
+    },
+    {
       title: "Clerk Auth",
       value: "clerk",
     },
@@ -53,6 +57,10 @@ const EXTRAS = {
     {
       title: "Mercado Pago",
       value: "mercadopago",
+    },
+    {
+      title: "Kinde Auth",
+      value: "kinde",
     },
     {
       title: "Clerk Auth",

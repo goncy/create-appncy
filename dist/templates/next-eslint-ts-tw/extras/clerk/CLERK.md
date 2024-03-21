@@ -13,7 +13,7 @@ CLERK_SECRET_KEY=
 Install the Clerk dependencies for Next.js and its themes:
 
 ```bash
-pnpm add @clerk/nextjs @clerk/themes
+pnpm add @clerk/nextjs@beta
 ```
 
 ## 3. Add the `AuthProvider` to the layout
@@ -31,15 +31,29 @@ import {AuthProvider} from "@/auth/provider";
 Create a `middleware.ts` file on the root of the project with the following content:
 
 ```ts
-import {authMiddleware} from "@clerk/nextjs";
+import {clerkMiddleware} from "@clerk/nextjs/server";
 
-export default authMiddleware();
+export default clerkMiddleware();
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
 ```
-> If you want some of your pages to be public, you can pass a `publicRoute` array to `authMiddleware` with the paths of your routes.
+> If you want some of your pages to be public, you can check [`clerkMiddleware` API reference](https://beta.clerk.com/docs/references/nextjs/clerk-middleware#protect-routes-with-create-route-matcher-and-clerk-middleware).
+
+If you don't want to use middleware for securing routes and you want to do it per page instead, you can use the `auth().protect()` helper directly in routes, route handlers or layouts:
+
+```tsx
+import { auth } from '@clerk/nextjs/server'
+
+export default async function DashboardLayout({ children }) {
+    auth().protect();
+    // 👆 This one line is all it takes - the layout and all its children
+    // will now redirect to your sign in page for un-authenticated users.
+
+    return <>{children}</>
+}
+```
 
 ## 5. Custom Sign in and Sign up pages
 Create a `app/sign-in/[[...sign-in]]/page.tsx` file with the following content:
@@ -96,5 +110,3 @@ import {UserButton} from "@clerk/nextjs";
 
 <UserButton />
 ```
-
-

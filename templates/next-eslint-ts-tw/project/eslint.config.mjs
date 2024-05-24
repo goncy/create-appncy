@@ -1,5 +1,4 @@
 import globals from "globals";
-import eslintPluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
@@ -79,7 +78,6 @@ export default [
     ...tseslint.configs.recommended,
     {
       rules: {
-        ...eslintPluginJs.configs.recommended.rules,
         ...vercelStyleGuideTypescript.rules,
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-shadow": "off",

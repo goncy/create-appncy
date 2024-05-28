@@ -68,7 +68,7 @@ export default [
           reservedFirst: true,
         },
       ],
-      "react-compiler/react-compiler": 2,
+      "react-compiler/react-compiler": "error",
       "jsx-a11y/no-static-element-interactions": "off",
       "jsx-a11y/click-events-have-key-events": "off",
     },

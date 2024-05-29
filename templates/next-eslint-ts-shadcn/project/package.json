@@ -1,5 +1,5 @@
 {
-  "name": "temp",
+  "name": "{{name}}",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -31,7 +31,7 @@
     "@vercel/style-guide": "^6.0.0",
     "babel-plugin-react-compiler": "0.0.0-experimental-592953e-20240517",
     "eslint": "^9.3.0",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "15.0.0-rc.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",

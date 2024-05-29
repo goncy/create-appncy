@@ -13,9 +13,12 @@ import vercelStyleGuideReact from "@vercel/style-guide/eslint/rules/react";
 import vercelStyleGuideNext from "@vercel/style-guide/eslint/next";
 
 export default [
-  // General configuration
+  // Ignores configuration
   {
     ignores: ["node_modules", ".next", "out", "coverage", ".idea"],
+  },
+  // General configuration
+  {
     rules: {
       "padding-line-between-statements": [
         "warn",

@@ -6,7 +6,7 @@ Install the libsql, drizzle-orm, drizzle-kit and better-sqlite3 packages:
 
 ```bash
 pnpm add libsql drizzle-orm
-pnpm add drizzle-kit better-sqlite3 -D
+pnpm add drizzle-kit@0.22.8 better-sqlite3 -D
 ```
 
 ## 2. Create the schema
@@ -27,7 +27,7 @@ export const todos = sqliteTable("todos", {
 Run the push command to let Drizzle create the tables:
 
 ```bash
-pnpm drizzle-kit push:sqlite
+pnpm drizzle-kit push
 ```
 > Run this command anytime your schema changes.
 

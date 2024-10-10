@@ -72,6 +72,7 @@ export default [
         },
       ],
       "react-compiler/react-compiler": "error",
+      "react/jsx-no-leaked-render": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "jsx-a11y/click-events-have-key-events": "off",
     },

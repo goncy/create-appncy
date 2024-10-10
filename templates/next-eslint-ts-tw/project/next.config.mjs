@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     reactCompiler: true,
-    instrumentationHook: true,
   },
   logging: {
     fetches: {

@@ -1,3 +1,3 @@
-export default function HomePage() {
-  return <section>👋</section>;
+export default async function HomePage() {
+  return <main>👋</main>;
 }

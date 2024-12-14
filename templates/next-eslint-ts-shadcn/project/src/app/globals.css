@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  /* Set default color scheme, color and background color */
+  body {
+    color-scheme: light dark;
+    color: CanvasText;
+    background-color: Canvas;
+  }
+
+  /* Set theme variables */
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -67,11 +75,8 @@
     }
   }
 
+  /* Apply the base border to all elements */
   * {
     @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }

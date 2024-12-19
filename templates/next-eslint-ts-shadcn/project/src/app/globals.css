@@ -1,82 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* Color variables - Light/Dark mode pairs */
+  --color-background: light-dark(var(--color-white), var(--color-zinc-950));
+  --color-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+
+  /* Card colors */
+  --color-card: light-dark(var(--color-white), var(--color-zinc-950));
+  --color-card-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+
+  /* Popover colors */
+  --color-popover: light-dark(var(--color-white), var(--color-zinc-950));
+  --color-popover-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+
+  /* Primary colors */
+  --color-primary: light-dark(var(--color-slate-900), var(--color-zinc-50));
+  --color-primary-foreground: light-dark(var(--color-slate-50), var(--color-zinc-900));
+
+  /* Secondary colors */
+  --color-secondary: light-dark(var(--color-slate-100), var(--color-zinc-800));
+  --color-secondary-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+
+  /* Muted colors */
+  --color-muted: light-dark(var(--color-slate-100), var(--color-zinc-800));
+  --color-muted-foreground: light-dark(var(--color-slate-500), var(--color-zinc-400));
+
+  /* Accent colors */
+  --color-accent: light-dark(var(--color-slate-100), var(--color-zinc-800));
+  --color-accent-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+
+  /* Destructive colors */
+  --color-destructive: light-dark(var(--color-rose-500), var(--color-rose-700));
+  --color-destructive-foreground: light-dark(var(--color-slate-50), var(--color-zinc-50));
+
+  /* UI element colors */
+  --color-border: light-dark(var(--color-slate-200), var(--color-zinc-800));
+  --color-input: light-dark(var(--color-slate-200), var(--color-zinc-800));
+  --color-ring: light-dark(var(--color-slate-400), var(--color-zinc-300));
+
+  /* Border radius variables */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
 
 @layer base {
-  /* Set default color scheme, color and background color */
-  body {
-    color-scheme: light dark;
-    color: CanvasText;
-    background-color: Canvas;
-  }
-
-  /* Set theme variables */
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 240 10% 3.9%;
-      --foreground: 0 0% 98%;
-
-      --card: 240 10% 3.9%;
-      --card-foreground: 0 0% 98%;
-
-      --popover: 240 10% 3.9%;
-      --popover-foreground: 0 0% 98%;
-
-      --primary: 0 0% 98%;
-      --primary-foreground: 240 5.9% 10%;
-
-      --secondary: 240 3.7% 15.9%;
-      --secondary-foreground: 0 0% 98%;
-
-      --muted: 240 3.7% 15.9%;
-      --muted-foreground: 240 5% 64.9%;
-
-      --accent: 240 3.7% 15.9%;
-      --accent-foreground: 0 0% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-
-      --border: 240 3.7% 15.9%;
-      --input: 240 3.7% 15.9%;
-      --ring: 240 4.9% 83.9%;
-    }
-  }
-
-  /* Apply the base border to all elements */
-  * {
-    @apply border-border;
+  /* Set default border color for all elements */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
   }
 }

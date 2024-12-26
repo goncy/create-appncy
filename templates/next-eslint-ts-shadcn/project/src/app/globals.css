@@ -2,49 +2,144 @@
 
 @plugin "tailwindcss-animate";
 
-@theme {
-  /* Color variables - Light/Dark mode pairs */
-  --color-background: light-dark(var(--color-white), var(--color-zinc-950));
-  --color-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+:root {
+  /* Base colors */
+  --background: var(--color-white);
+  --foreground: var(--color-slate-900);
 
   /* Card colors */
-  --color-card: light-dark(var(--color-white), var(--color-zinc-950));
-  --color-card-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+  --card: var(--color-white);
+  --card-foreground: var(--color-slate-900);
 
   /* Popover colors */
-  --color-popover: light-dark(var(--color-white), var(--color-zinc-950));
-  --color-popover-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-slate-900);
 
   /* Primary colors */
-  --color-primary: light-dark(var(--color-slate-900), var(--color-zinc-50));
-  --color-primary-foreground: light-dark(var(--color-slate-50), var(--color-zinc-900));
+  --primary: var(--color-slate-900);
+  --primary-foreground: var(--color-slate-50);
 
   /* Secondary colors */
-  --color-secondary: light-dark(var(--color-slate-100), var(--color-zinc-800));
-  --color-secondary-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+  --secondary: var(--color-slate-100);
+  --secondary-foreground: var(--color-slate-900);
 
   /* Muted colors */
-  --color-muted: light-dark(var(--color-slate-100), var(--color-zinc-800));
-  --color-muted-foreground: light-dark(var(--color-slate-500), var(--color-zinc-400));
+  --muted: var(--color-slate-100);
+  --muted-foreground: var(--color-slate-500);
 
   /* Accent colors */
-  --color-accent: light-dark(var(--color-slate-100), var(--color-zinc-800));
-  --color-accent-foreground: light-dark(var(--color-slate-900), var(--color-zinc-50));
+  --accent: var(--color-slate-100);
+  --accent-foreground: var(--color-slate-900);
 
   /* Destructive colors */
-  --color-destructive: light-dark(var(--color-rose-500), var(--color-rose-700));
-  --color-destructive-foreground: light-dark(var(--color-slate-50), var(--color-zinc-50));
+  --destructive: var(--color-rose-500);
+  --destructive-foreground: var(--color-slate-50);
 
   /* UI element colors */
-  --color-border: light-dark(var(--color-slate-200), var(--color-zinc-800));
-  --color-input: light-dark(var(--color-slate-200), var(--color-zinc-800));
-  --color-ring: light-dark(var(--color-slate-400), var(--color-zinc-300));
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-200);
+  --ring: var(--color-slate-400);
 
-  /* Border radius variables */
+  /* Border radius */
   --radius: 0.5rem;
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
+
+  /* Chart colors in HSL format */
+  --chart-1: var(--color-orange-500);
+  --chart-2: var(--color-teal-700);
+  --chart-3: var(--color-cyan-900);
+  --chart-4: var(--color-amber-300);
+  --chart-5: var(--color-orange-300);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Base colors */
+    --background: var(--color-zinc-950);
+    --foreground: var(--color-zinc-50);
+
+    /* Card colors */
+    --card: var(--color-zinc-950);
+    --card-foreground: var(--color-zinc-50);
+
+    /* Popover colors */
+    --popover: var(--color-zinc-950);
+    --popover-foreground: var(--color-zinc-50);
+
+    /* Primary colors */
+    --primary: var(--color-zinc-50);
+    --primary-foreground: var(--color-zinc-900);
+
+    /* Secondary colors */
+    --secondary: var(--color-zinc-800);
+    --secondary-foreground: var(--color-zinc-50);
+
+    /* Muted colors */
+    --muted: var(--color-zinc-800);
+    --muted-foreground: var(--color-zinc-400);
+
+    /* Accent colors */
+    --accent: var(--color-zinc-800);
+    --accent-foreground: var(--color-zinc-50);
+
+    /* Destructive colors */
+    --destructive: var(--color-rose-700);
+    --destructive-foreground: var(--color-zinc-50);
+
+    /* UI element colors */
+    --border: var(--color-zinc-800);
+    --input: var(--color-zinc-800);
+    --ring: var(--color-zinc-300);
+
+    /* Chart colors in HSL format */
+    --chart-1: var(--color-orange-500);
+    --chart-2: var(--color-teal-700);
+    --chart-3: var(--color-cyan-900);
+    --chart-4: var(--color-amber-300);
+    --chart-5: var(--color-orange-300);
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
 }
 
 @layer base {

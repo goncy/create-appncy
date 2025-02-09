@@ -3,99 +3,70 @@
 @plugin "tailwindcss-animate";
 
 :root {
-  /* Base colors */
-  --background: var(--color-white);
-  --foreground: var(--color-slate-900);
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
 
-  /* Card colors */
-  --card: var(--color-white);
-  --card-foreground: var(--color-slate-900);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
 
-  /* Popover colors */
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-slate-900);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
 
-  /* Primary colors */
-  --primary: var(--color-slate-900);
-  --primary-foreground: var(--color-slate-50);
+  --primary: hsl(240 5.9% 10%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+  --accent: hsl(240 4.8% 95.9%);
+  --accent-foreground: hsl(240 5.9% 10%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 98%);
 
-  /* Secondary colors */
-  --secondary: var(--color-slate-100);
-  --secondary-foreground: var(--color-slate-900);
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --ring: hsl(240 10% 3.9%);
 
-  /* Muted colors */
-  --muted: var(--color-slate-100);
-  --muted-foreground: var(--color-slate-500);
+  --chart-1: hsl(12 76% 61%);
+  --chart-2: hsl(173 58% 39%);
+  --chart-3: hsl(197 37% 24%);
+  --chart-4: hsl(43 74% 66%);
+  --chart-5: hsl(27 87% 67%);
 
-  /* Accent colors */
-  --accent: var(--color-slate-100);
-  --accent-foreground: var(--color-slate-900);
-
-  /* Destructive colors */
-  --destructive: var(--color-rose-500);
-  --destructive-foreground: var(--color-slate-50);
-
-  /* UI element colors */
-  --border: var(--color-slate-200);
-  --input: var(--color-slate-200);
-  --ring: var(--color-slate-400);
-
-  /* Border radius */
-  --radius: 0.5rem;
-
-  /* Chart colors in HSL format */
-  --chart-1: var(--color-orange-500);
-  --chart-2: var(--color-teal-700);
-  --chart-3: var(--color-cyan-900);
-  --chart-4: var(--color-amber-300);
-  --chart-5: var(--color-orange-300);
+  --radius: 0.6rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Base colors */
-    --background: var(--color-zinc-950);
-    --foreground: var(--color-zinc-50);
+    --background: hsl(240 10% 3.9%);
+    --foreground: hsl(0 0% 98%);
 
-    /* Card colors */
-    --card: var(--color-zinc-950);
-    --card-foreground: var(--color-zinc-50);
+    --card: hsl(240 10% 3.9%);
+    --card-foreground: hsl(0 0% 98%);
 
-    /* Popover colors */
-    --popover: var(--color-zinc-950);
-    --popover-foreground: var(--color-zinc-50);
+    --popover: hsl(240 10% 3.9%);
+    --popover-foreground: hsl(0 0% 98%);
 
-    /* Primary colors */
-    --primary: var(--color-zinc-50);
-    --primary-foreground: var(--color-zinc-900);
+    --primary: hsl(0 0% 98%);
+    --primary-foreground: hsl(240 5.9% 10%);
+    --secondary: hsl(240 3.7% 15.9%);
+    --secondary-foreground: hsl(0 0% 98%);
+    --muted: hsl(240 3.7% 15.9%);
+    --muted-foreground: hsl(240 5% 64.9%);
+    --accent: hsl(240 3.7% 15.9%);
+    --accent-foreground: hsl(0 0% 98%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 0% 98%);
 
-    /* Secondary colors */
-    --secondary: var(--color-zinc-800);
-    --secondary-foreground: var(--color-zinc-50);
+    --border: hsl(240 3.7% 15.9%);
+    --input: hsl(240 3.7% 15.9%);
+    --ring: hsl(240 4.9% 83.9%);
 
-    /* Muted colors */
-    --muted: var(--color-zinc-800);
-    --muted-foreground: var(--color-zinc-400);
-
-    /* Accent colors */
-    --accent: var(--color-zinc-800);
-    --accent-foreground: var(--color-zinc-50);
-
-    /* Destructive colors */
-    --destructive: var(--color-rose-700);
-    --destructive-foreground: var(--color-zinc-50);
-
-    /* UI element colors */
-    --border: var(--color-zinc-800);
-    --input: var(--color-zinc-800);
-    --ring: var(--color-zinc-300);
-
-    /* Chart colors in HSL format */
-    --chart-1: var(--color-orange-500);
-    --chart-2: var(--color-teal-700);
-    --chart-3: var(--color-cyan-900);
-    --chart-4: var(--color-amber-300);
-    --chart-5: var(--color-orange-300);
+    --chart-1: hsl(220 70% 50%);
+    --chart-2: hsl(160 60% 45%);
+    --chart-3: hsl(30 80% 55%);
+    --chart-4: hsl(280 65% 60%);
+    --chart-5: hsl(340 75% 55%);
   }
 }
 
@@ -111,16 +82,12 @@
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
@@ -137,16 +104,14 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-
-  --font-family-sans: var(--font-geist-sans);
-  --font-family-mono: var(--font-geist-mono);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
-  /* Set default border color for all elements */
-  *,
-  ::before,
-  ::after {
-    border-color: var(--color-border);
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

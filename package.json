@@ -7,8 +7,7 @@
     "create-appncy": "dist/index.js"
   },
   "files": [
-    "dist/**/*",
-    "dist/**/.gitignore"
+    "dist"
   ],
   "keywords": [
     "react",

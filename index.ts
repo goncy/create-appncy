@@ -2,7 +2,7 @@
 
 import path from "node:path";
 import {fileURLToPath} from "node:url";
-import {cp, readFile, writeFile} from "node:fs/promises";
+import {cp, readFile, writeFile, rename} from "node:fs/promises";
 import {glob} from "glob";
 import color from "picocolors";
 import prompts from "prompts";
@@ -171,6 +171,16 @@ async function main() {
 
   // Get all files from the destination folder
   const files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});
+
+  // Rename files with %% prefix
+  for await (const file of files) {
+    const basename = path.basename(file);
+
+    if (basename.startsWith("%%")) {
+      const newPath = path.join(path.dirname(file), basename.slice(2));
+      await rename(file, newPath);
+    }
+  }
 
   // Read each file and replace the tokens
   for await (const file of files) {

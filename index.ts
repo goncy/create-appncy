@@ -95,7 +95,7 @@ const args = yargs(hideBin(process.argv)).options({
   },
 });
 
-// Orverride arguments passed on the CLI
+// Override arguments passed on the CLI
 prompts.override(args.argv);
 
 async function main() {
@@ -170,7 +170,7 @@ async function main() {
   }
 
   // Get all files from the destination folder
-  const files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});
+  let files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});
 
   // Rename files with %% prefix
   for await (const file of files) {
@@ -181,6 +181,9 @@ async function main() {
       await rename(file, newPath);
     }
   }
+
+  // Get the updated file list after renaming
+  files = await glob(`**/*`, {nodir: true, cwd: destination, absolute: true});
 
   // Read each file and replace the tokens
   for await (const file of files) {

@@ -95,6 +95,7 @@ export default [
             args: "after-used",
             ignoreRestSiblings: false,
             argsIgnorePattern: "^_.*?$",
+            caughtErrorsIgnorePattern: "^_.*?$",
           },
         ],
       },

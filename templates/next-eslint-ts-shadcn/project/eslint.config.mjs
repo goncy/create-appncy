@@ -8,9 +8,6 @@ import eslintPluginImport from "eslint-plugin-import";
 import eslintPluginReactCompiler from "eslint-plugin-react-compiler";
 import eslintPluginNext from "@next/eslint-plugin-next";
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
-import vercelStyleGuideTypescript from "@vercel/style-guide/eslint/typescript";
-import vercelStyleGuideReact from "@vercel/style-guide/eslint/rules/react";
-import vercelStyleGuideNext from "@vercel/style-guide/eslint/next";
 
 export default [
   // Ignores configuration
@@ -26,7 +23,7 @@ export default [
         {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
         {blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
       ],
-      "no-console": "warn",
+      "no-console": ["warn", {allow: ["error"]}],
     },
   },
   // React configuration
@@ -57,9 +54,12 @@ export default [
       ...eslintPluginReact.configs.recommended.rules,
       ...eslintPluginJsxA11y.configs.recommended.rules,
       ...eslintPluginReactHooks.configs.recommended.rules,
-      ...vercelStyleGuideReact.rules,
+      "react/jsx-boolean-value": ["error", "never"],
+      "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
+      "react/jsx-no-useless-fragment": "error",
       "react/prop-types": "off",
       "react/jsx-uses-react": "off",
+      "react/no-array-index-key": "off",
       "react/react-in-jsx-scope": "off",
       "react/self-closing-comp": "warn",
       "react/jsx-sort-props": [
@@ -75,6 +75,7 @@ export default [
       "react/jsx-no-leaked-render": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "jsx-a11y/click-events-have-key-events": "off",
+      "jsx-a11y/html-has-lang": "off",
     },
   },
   // TypeScript configuration
@@ -82,7 +83,14 @@ export default [
     ...tseslint.configs.recommended,
     {
       rules: {
-        ...vercelStyleGuideTypescript.rules,
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-object-type": "error",
+        "@typescript-eslint/no-unsafe-function-type": "error",
+        "@typescript-eslint/no-wrapper-object-types": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-shadow": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
@@ -145,7 +153,7 @@ export default [
           ],
           pathGroups: [
             {
-              pattern: "~/**",
+              pattern: "@/*",
               group: "external",
               position: "after",
             },
@@ -158,7 +166,7 @@ export default [
   // Next configuration
   {
     plugins: {
-      next: fixupPluginRules(eslintPluginNext),
+      "@next/next": fixupPluginRules(eslintPluginNext),
     },
     languageOptions: {
       globals: {
@@ -167,8 +175,9 @@ export default [
       },
     },
     rules: {
-      ...vercelStyleGuideNext.rules,
+      ...eslintPluginNext.configs.recommended.rules,
       "@next/next/no-img-element": "off",
+      "@next/next/no-html-link-for-pages": "off",
     },
   },
 ];

@@ -8,7 +8,8 @@
       "type": "registry:item",
       "title": "ESLint configuration",
       "description": "ESLint configuration for Next.js, TypeScript, and Shadcn UI",
-      "dependencies": [
+      "devDependencies": [
+        "globals",
         "@eslint/compat",
         "@next/eslint-plugin-next",
         "eslint",

@@ -45,7 +45,7 @@ export const GET = handleAuth() as () => Promise<void>;
 ```
 
 ## 5. Add the `UserProvider` component to the layout
-Wrap the root layout with the `UserProvider` component from `@auth0/nextjs-auth0/client`. This will let you access the session information withing client components:
+Wrap the root layout with the `UserProvider` component from `@auth0/nextjs-auth0/client`. This will let you access the session information within client components:
 
 ```tsx
 // app/layout.tsx
@@ -55,7 +55,7 @@ import {UserProvider} from "@/auth/provider";
 <UserProvider>{children}</UserProvider>
 ```
 
-## 6. Add a login and logout link in the app and access the sesion information
+## 6. Add a login and logout link in the app and access the session information
 Add a link to login and logout in the app to let users handle their session:
 
 ```tsx

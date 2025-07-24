@@ -25,7 +25,7 @@
       ],
       "files": [
         {
-          "path": "registry/eslint/next-ts-tailwind.mjs",
+          "path": "templates/next-eslint-ts-shadcn/project/eslint.config.mjs",
           "type": "registry:file",
           "target": "~/eslint.config.mjs"
         }

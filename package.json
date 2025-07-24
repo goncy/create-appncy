@@ -26,9 +26,10 @@
   },
   "scripts": {
     "build": "tsup",
+    "registry": "shadcn build",
     "start": "node dist/index.js",
     "dev": "tsup --watch",
-    "bump": "pnpm run build && git add -A . && git commit -m 'bump' && pnpm version patch && git tag latest --force && git push origin main --tags --force && pnpm publish --tag latest --force"
+    "bump": "pnpm run build && pnpm run registry && git add -A . && git commit -m 'bump' && pnpm version patch && git tag latest --force && git push origin main --tags --force && pnpm publish --tag latest --force"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

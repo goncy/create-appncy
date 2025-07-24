@@ -153,6 +153,10 @@ const importLintingConfig = defineConfig([
     rules: {
       "import/no-default-export": "off",
       "import/no-named-as-default-member": "off",
+      "import/named": "off",
+      "import/namespace": "off",
+      "import/default": "off",
+      "import/no-unresolved": "off",
       "import/order": [
         "warn",
         {

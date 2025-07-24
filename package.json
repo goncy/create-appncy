@@ -32,6 +32,7 @@
     "bump": "pnpm run build && pnpm run registry && git add -A . && git commit -m 'bump' && pnpm version patch && git tag latest --force && git push origin main --tags --force && pnpm publish --tag latest --force"
   },
   "devDependencies": {
+    "shadcn": "^2.9.3",
     "@types/node": "^20.11.0",
     "@types/prompts": "^2.4.9",
     "@types/yargs": "^17.0.32",

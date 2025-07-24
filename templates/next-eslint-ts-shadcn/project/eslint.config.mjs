@@ -31,7 +31,7 @@ const languageLintingConfig = tseslint.config(
   {
     rules: {
       "no-console": ["warn", {allow: ["error"]}],
-      "padding-line-between-statements": [
+      "@stylistic/padding-line-between-statements": [
         "warn",
         {blankLine: "always", prev: "*", next: ["return", "export"]},
         {blankLine: "always", prev: ["const", "let", "var"], next: "*"},

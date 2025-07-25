@@ -8,6 +8,7 @@ import eslintPluginImport from "eslint-plugin-import";
 import eslintPluginReactCompiler from "eslint-plugin-react-compiler";
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
 import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginStylistic from "@stylistic/eslint-plugin";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -28,6 +29,7 @@ const languageLintingConfig = tseslint.config(
   eslintJs.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
+  eslintPluginStylistic.flatConfigs.recommended,
   {
     rules: {
       "no-console": ["warn", {allow: ["error"]}],

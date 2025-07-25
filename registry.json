@@ -15,6 +15,7 @@
         "@next/eslint-plugin-next",
         "@stylistic/eslint-plugin",
         "eslint",
+        "eslint-config-prettier",
         "eslint-plugin-import",
         "eslint-plugin-jsx-a11y",
         "eslint-plugin-prettier",

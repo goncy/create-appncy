@@ -20,6 +20,7 @@
         "eslint-plugin-prettier",
         "eslint-plugin-react",
         "eslint-plugin-react-compiler",
+        "eslint-import-resolver-typescript",
         "prettier",
         "prettier-plugin-tailwindcss",
         "typescript-eslint"

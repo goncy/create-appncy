@@ -22,7 +22,6 @@ const languageLintingConfig = tseslint.config(
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
-        debugLevel: true,
       },
     },
   },
@@ -93,9 +92,9 @@ const reactLintingConfig = defineConfig([
       // "react/jsx-uses-react": "off",
       // "react/no-array-index-key": "off",
       // "react/react-in-jsx-scope": "off",
-      // "react/self-closing-comp": "warn",
       // "react-compiler/react-compiler": "error",
       // "react/jsx-no-leaked-render": "off",
+      "react/self-closing-comp": "warn",
       "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
       "react/jsx-sort-props": [
         "warn",

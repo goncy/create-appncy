@@ -20,7 +20,9 @@ const languageLintingConfig = tseslint.config(
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ["*.js", "*.mjs", "*.cjs"],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -52,6 +54,7 @@ const languageLintingConfig = tseslint.config(
         },
       ],
       "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-confusing-void-expression": "off",
       // "@typescript-eslint/ban-ts-comment": "off",
       // "@typescript-eslint/no-empty-object-type": "error",
       // "@typescript-eslint/no-unsafe-function-type": "error",
@@ -65,7 +68,6 @@ const languageLintingConfig = tseslint.config(
       // "@typescript-eslint/explicit-function-return-type": "off",
       // "@typescript-eslint/require-await": "off",
       // "@typescript-eslint/no-floating-promises": "off",
-      // "@typescript-eslint/no-confusing-void-expression": "off",
     },
   },
 );

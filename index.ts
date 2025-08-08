@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 
 import path from "node:path";
-import {fileURLToPath} from "node:url";
-import {cp, readFile, writeFile, rename} from "node:fs/promises";
-import {glob} from "glob";
+import { fileURLToPath } from "node:url";
+import { cp, readFile, writeFile, rename } from "node:fs/promises";
+import { glob } from "glob";
 import color from "picocolors";
 import prompts from "prompts";
 import yargs from "yargs";
-import {hideBin} from "yargs/helpers";
+import { hideBin } from "yargs/helpers";
 
 // List of templates
 const TEMPLATES = [
+  {
+    title: "Next.js + Biome + TypeScript + Shadcn/ui",
+    value: "next-biome-ts-shadcn",
+  },
   {
     title: "Next.js + ESLint + TypeScript + Shadcn/ui",
     value: "next-eslint-ts-shadcn",

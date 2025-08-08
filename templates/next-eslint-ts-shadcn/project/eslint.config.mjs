@@ -55,6 +55,8 @@ const languageLintingConfig = tseslint.config(
       ],
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/no-confusing-void-expression": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/no-redundant-type-constituents": "off",
       // "@typescript-eslint/ban-ts-comment": "off",
       // "@typescript-eslint/no-empty-object-type": "error",
       // "@typescript-eslint/no-unsafe-function-type": "error",

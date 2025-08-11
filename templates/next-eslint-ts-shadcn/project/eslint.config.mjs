@@ -55,19 +55,12 @@ const languageLintingConfig = tseslint.config(
       ],
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/no-confusing-void-expression": "off",
-      // "@typescript-eslint/ban-ts-comment": "off",
-      // "@typescript-eslint/no-empty-object-type": "error",
-      // "@typescript-eslint/no-unsafe-function-type": "error",
-      // "@typescript-eslint/no-wrapper-object-types": "error",
-      // "@typescript-eslint/no-empty-function": "off",
-      // "@typescript-eslint/no-explicit-any": "off",
-      // "@typescript-eslint/no-inferrable-types": "off",
-      // "@typescript-eslint/no-namespace": "off",
-      // "@typescript-eslint/no-non-null-assertion": "off",
-      // "@typescript-eslint/no-shadow": "off",
-      // "@typescript-eslint/explicit-function-return-type": "off",
-      // "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-inferrable-types": "off",
+      // Optionals
       // "@typescript-eslint/no-floating-promises": "off",
+      // "@typescript-eslint/no-non-null-assertion": "off",
     },
   },
 );
@@ -87,15 +80,9 @@ const reactLintingConfig = defineConfig([
   eslintPluginReactCompiler.configs.recommended,
   {
     rules: {
-      // "@eslint-react/no-missing-key": "warn",
-      // "react/jsx-boolean-value": ["error", "never"],
-      // "react/jsx-no-useless-fragment": "error",
-      // "react/prop-types": "off",
-      // "react/jsx-uses-react": "off",
-      // "react/no-array-index-key": "off",
-      // "react/react-in-jsx-scope": "off",
-      // "react-compiler/react-compiler": "error",
-      // "react/jsx-no-leaked-render": "off",
+      "@eslint-react/no-useless-fragment": "error",
+      "@eslint-react/no-missing-key": "warn",
+      "react/no-array-index-key": "off",
       "react/self-closing-comp": "warn",
       "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
       "react/jsx-sort-props": [
@@ -118,9 +105,7 @@ const reactA11yLintingConfig = defineConfig([
   eslintPluginJsxA11y.flatConfigs.recommended,
   {
     rules: {
-      // "jsx-a11y/no-static-element-interactions": "off",
-      // "jsx-a11y/click-events-have-key-events": "off",
-      // "jsx-a11y/html-has-lang": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
     },
   },
 ]);
@@ -133,7 +118,6 @@ const nextLintingConfig = defineConfig([
   {
     rules: {
       "@next/next/no-img-element": "off",
-      // "@next/next/no-html-link-for-pages": "off",
     },
   },
 ]);

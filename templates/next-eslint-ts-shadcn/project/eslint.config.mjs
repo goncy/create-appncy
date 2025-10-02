@@ -1,11 +1,11 @@
 import {FlatCompat} from "@eslint/eslintrc";
-import {defineConfig} from "eslint/config";
+import {defineConfig, globalIgnores} from "eslint/config";
 import tseslint from "typescript-eslint";
 import eslintJs from "@eslint/js";
 import eslintReact from "@eslint-react/eslint-plugin";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import eslintPluginImport from "eslint-plugin-import";
-import eslintPluginReactCompiler from "eslint-plugin-react-compiler";
+import eslintPluginReactHooks from "eslint-plugin-react-hooks";
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginStylistic from "@stylistic/eslint-plugin";
@@ -14,7 +14,11 @@ const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 });
 
-const languageLintingConfig = tseslint.config(
+const ignoresLintingConfig = defineConfig([
+  globalIgnores([".next/", "node_modules/", "next-env.d.ts"]),
+]);
+
+const languageLintingConfig = defineConfig([
   {
     files: ["**/*.{ts,tsx,js,mjs,cjs}"],
     languageOptions: {
@@ -63,7 +67,7 @@ const languageLintingConfig = tseslint.config(
       // "@typescript-eslint/no-non-null-assertion": "off",
     },
   },
-);
+]);
 
 const reactLintingConfig = defineConfig([
   {
@@ -77,7 +81,7 @@ const reactLintingConfig = defineConfig([
   eslintPluginReact.configs.flat.recommended,
   eslintPluginReact.configs.flat["jsx-runtime"],
   eslintReact.configs["recommended-type-checked"],
-  eslintPluginReactCompiler.configs.recommended,
+  eslintPluginReactHooks.configs["recommended-latest"],
   {
     rules: {
       "@eslint-react/no-useless-fragment": "error",
@@ -197,6 +201,7 @@ const prettierLintingConfig = defineConfig([
 ]);
 
 export default defineConfig([
+  ignoresLintingConfig,
   languageLintingConfig,
   reactLintingConfig,
   reactA11yLintingConfig,

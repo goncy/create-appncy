@@ -1,4 +1,3 @@
-import {FlatCompat} from "@eslint/eslintrc";
 import {defineConfig} from "eslint/config";
 import tseslint from "typescript-eslint";
 import eslintJs from "@eslint/js";
@@ -9,14 +8,14 @@ import eslintPluginReactCompiler from "eslint-plugin-react-compiler";
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginStylistic from "@stylistic/eslint-plugin";
+import eslintPluginNext from "@next/eslint-plugin-next";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
-const languageLintingConfig = tseslint.config(
+const languageLintingConfig = defineConfig([
   {
     files: ["**/*.{ts,tsx,js,mjs,cjs}"],
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+    },
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -63,7 +62,7 @@ const languageLintingConfig = tseslint.config(
       // "@typescript-eslint/no-non-null-assertion": "off",
     },
   },
-);
+]);
 
 const reactLintingConfig = defineConfig([
   {
@@ -113,8 +112,10 @@ const reactA11yLintingConfig = defineConfig([
 const nextLintingConfig = defineConfig([
   {
     files: ["**/*.{tsx,jsx}"],
+    plugins: {
+      next: eslintPluginNext,
+    },
   },
-  compat.extends("plugin:@next/next/recommended"),
   {
     rules: {
       "@next/next/no-img-element": "off",

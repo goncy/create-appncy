@@ -10,25 +10,24 @@
       "description": "ESLint configuration for Next.js, TypeScript, and TailwindCSS projects",
       "devDependencies": [
         "@eslint/js",
-        "@eslint-react/eslint-plugin",
-        "@eslint/eslintrc",
         "@next/eslint-plugin-next",
         "@stylistic/eslint-plugin",
         "eslint",
         "eslint-config-prettier",
-        "eslint-plugin-import",
         "eslint-plugin-jsx-a11y",
+        "eslint-plugin-perfectionist",
         "eslint-plugin-prettier",
         "eslint-plugin-react",
         "eslint-plugin-react-compiler",
-        "eslint-import-resolver-typescript",
+        "eslint-plugin-react-hooks",
+        "globals",
         "prettier",
         "prettier-plugin-tailwindcss",
         "typescript-eslint"
       ],
       "files": [
         {
-          "path": "templates/next-eslint-ts-shadcn/project/eslint.config.mjs",
+          "path": "templates/next-eslint-ts-tw/project/eslint.config.mjs",
           "type": "registry:file",
           "target": "~/eslint.config.mjs"
         }

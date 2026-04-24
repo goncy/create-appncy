@@ -58,6 +58,8 @@
 :root {
   color-scheme: light;
 
+  --font-sans: "Inter", sans-serif;
+
   --radius: 0.5rem;
 
   --background: oklch(1 0 0);

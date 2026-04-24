@@ -2,5 +2,6 @@ node_modules
 temp
 dist
 .DS_Store
+.next
 
 HELPERS.md

@@ -10,6 +10,21 @@ import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginStylistic from "@stylistic/eslint-plugin";
 import eslintPluginNext from "@next/eslint-plugin-next";
 
+const ignoresConfig = defineConfig([
+  {
+    name: "appncy/ignores",
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "dist/**",
+      "coverage/**",
+      "node_modules/**",
+      "next-env.d.ts",
+    ],
+  },
+]);
+
 const languageLintingConfig = defineConfig([
   {
     files: ["**/*.{ts,tsx,js,mjs,cjs}"],
@@ -198,6 +213,7 @@ const prettierLintingConfig = defineConfig([
 ]);
 
 export default defineConfig([
+  ignoresConfig,
   languageLintingConfig,
   reactLintingConfig,
   reactA11yLintingConfig,

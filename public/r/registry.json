@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "appncy",
+  "homepage": "https://github.com/goncy/create-appncy",
+  "items": [
+    {
+      "name": "eslint-next-ts-tailwind",
+      "type": "registry:item",
+      "title": "ESLint - Next.js + TypeScript + TailwindCSS",
+      "description": "ESLint configuration for Next.js, TypeScript, and TailwindCSS projects",
+      "devDependencies": [
+        "@eslint/js",
+        "@next/eslint-plugin-next",
+        "@stylistic/eslint-plugin",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-perfectionist",
+        "eslint-plugin-prettier",
+        "eslint-plugin-react",
+        "eslint-plugin-react-compiler",
+        "eslint-plugin-react-hooks",
+        "globals",
+        "prettier",
+        "prettier-plugin-tailwindcss",
+        "typescript-eslint"
+      ],
+      "files": [
+        {
+          "path": "templates/next-eslint-ts-tw/project/eslint.config.mjs",
+          "type": "registry:file",
+          "target": "~/eslint.config.mjs"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import js from "@eslint/js";
-import stylistic from "@stylistic/eslint-plugin";
 import next from "@next/eslint-plugin-next";
+import stylistic from "@stylistic/eslint-plugin";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import perfectionist from "eslint-plugin-perfectionist";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
@@ -47,21 +47,23 @@ export default tseslint.config(
     },
     rules: {
       "no-console": ["warn", {allow: ["error"]}],
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-empty-function": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-inferrable-types": "off",
-      "@typescript-eslint/no-namespace": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
           args: "after-used",
-          argsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_",
           ignoreRestSiblings: false,
+          argsIgnorePattern: "^_.*?$",
+          caughtErrorsIgnorePattern: "^_.*?$",
         },
       ],
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-confusing-void-expression": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-inferrable-types": "off",
+      // Optionals
+      // "@typescript-eslint/no-floating-promises": "off",
+      // "@typescript-eslint/no-non-null-assertion": "off",
     },
   },
 
@@ -76,11 +78,9 @@ export default tseslint.config(
     ],
     settings: {react: {version: "detect"}},
     rules: {
-      "react/prop-types": "off",
-      "react/jsx-boolean-value": ["error", "never"],
-      "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
       "react/jsx-no-useless-fragment": "error",
       "react/self-closing-comp": "warn",
+      "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
     },
   },
 
@@ -91,8 +91,6 @@ export default tseslint.config(
     extends: [jsxA11y.flatConfigs.recommended],
     rules: {
       "jsx-a11y/click-events-have-key-events": "off",
-      "jsx-a11y/html-has-lang": "off",
-      "jsx-a11y/no-static-element-interactions": "off",
     },
   },
 
@@ -103,7 +101,6 @@ export default tseslint.config(
     rules: {
       ...next.configs.recommended.rules,
       ...next.configs["core-web-vitals"].rules,
-      "@next/next/no-html-link-for-pages": "off",
       "@next/next/no-img-element": "off",
     },
   },

@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button";
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <main>
       <Button>👋</Button>

@@ -1,0 +1,7 @@
+{
+  "id": "extras-clerk",
+  "name": "Clerk",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "CLERK.md"
+}

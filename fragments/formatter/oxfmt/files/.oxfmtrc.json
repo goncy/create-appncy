@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "bracketSpacing": false,
+  "arrowParens": "always",
+  "sortImports": {
+    "groups": [
+      "type",
+      "builtin",
+      "external",
+      "internal",
+      ["parent", "sibling", "index"],
+      "side_effect_style",
+      "style",
+      "side_effect",
+      "unknown"
+    ],
+    "newlinesBetween": true
+  },
+  "sortTailwindcss": {},
+  "sortPackageJson": false,
+  "ignorePatterns": []
+}

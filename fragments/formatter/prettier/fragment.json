@@ -1,0 +1,16 @@
+{
+  "id": "formatter-prettier",
+  "name": "Prettier",
+  "category": "formatter",
+  "package": {
+    "devDependencies": {
+      "eslint-config-prettier": "^10.1.8",
+      "eslint-plugin-prettier": "^5.5.5",
+      "prettier": "^3.8.3",
+      "prettier-plugin-tailwindcss": "^0.7.3"
+    }
+  },
+  "vscode": {
+    "extensions": ["esbenp.prettier-vscode"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "formatter-oxfmt",
+  "name": "Oxfmt",
+  "category": "formatter",
+  "package": {
+    "scripts": {
+      "format": "oxfmt",
+      "format:check": "oxfmt --check"
+    },
+    "devDependencies": {
+      "oxfmt": "^0.47.0"
+    }
+  },
+  "vscode": {
+    "extensions": ["oxc.oxc-vscode"]
+  }
+}

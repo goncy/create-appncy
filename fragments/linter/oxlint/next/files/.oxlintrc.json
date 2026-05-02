@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "jsx-a11y", "nextjs", "import", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "settings": {
+    "react": {
+      "version": "19.2.0"
+    }
+  },
+  "ignorePatterns": [
+    ".next/**",
+    "out/**",
+    "build/**",
+    "dist/**",
+    "coverage/**",
+    "node_modules/**",
+    "next-env.d.ts"
+  ],
+  "rules": {
+    "no-console": ["warn", {"allow": ["error"]}],
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": false,
+        "argsIgnorePattern": "^_.*?$",
+        "caughtErrorsIgnorePattern": "^_.*?$"
+      }
+    ],
+
+    "typescript/ban-ts-comment": "off",
+    "typescript/no-explicit-any": "off",
+    "typescript/no-inferrable-types": "off",
+    "typescript/no-non-null-assertion": "off",
+
+    "react/jsx-key": "warn",
+    "react/jsx-no-useless-fragment": "error",
+    "react/no-array-index-key": "off",
+    "react/self-closing-comp": "warn",
+    "react/jsx-curly-brace-presence": ["error", {"props": "never", "children": "never"}],
+
+    "jsx-a11y/click-events-have-key-events": "off",
+
+    "nextjs/no-img-element": "off",
+
+    "import/no-duplicates": "warn",
+    "import/no-named-as-default": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx,mts,cts}"],
+      "rules": {
+        "no-class-assign": "off",
+        "no-const-assign": "off",
+        "no-dupe-class-members": "off",
+        "no-dupe-keys": "off",
+        "no-func-assign": "off",
+        "no-import-assign": "off",
+        "no-new-native-nonconstructor": "off",
+        "no-obj-calls": "off",
+        "no-redeclare": "off",
+        "no-setter-return": "off",
+        "no-this-before-super": "off",
+        "no-unsafe-negation": "off",
+        "no-with": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "extras-libsql",
+  "name": "libSQL + Drizzle",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "LIBSQL.md"
+}

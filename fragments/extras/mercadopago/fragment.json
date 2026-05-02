@@ -1,0 +1,7 @@
+{
+  "id": "extras-mercadopago",
+  "name": "Mercado Pago",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "MERCADOPAGO.md"
+}

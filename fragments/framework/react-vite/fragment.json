@@ -1,0 +1,26 @@
+{
+  "id": "framework-react-vite",
+  "name": "React (Vite)",
+  "category": "framework",
+  "package": {
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "@tailwindcss/vite": "^4.2.4",
+      "react": "^19.2.5",
+      "react-dom": "^19.2.5",
+      "tailwindcss": "^4.2.4"
+    },
+    "devDependencies": {
+      "@types/react": "^19.2.14",
+      "@types/react-dom": "^19.2.3",
+      "@vitejs/plugin-react-swc": "^4.3.0",
+      "typescript": "^6.0.3",
+      "vite": "^8.0.10"
+    }
+  }
+}

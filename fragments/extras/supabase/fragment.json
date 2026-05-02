@@ -1,0 +1,7 @@
+{
+  "id": "extras-supabase",
+  "name": "Supabase",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "SUPABASE.md"
+}

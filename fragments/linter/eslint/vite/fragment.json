@@ -1,0 +1,37 @@
+{
+  "id": "linter-eslint-vite",
+  "name": "ESLint + Prettier",
+  "category": "linter",
+  "requires": [
+    "framework-react-vite",
+    "formatter-prettier"
+  ],
+  "package": {
+    "scripts": {
+      "lint": "eslint . --cache --cache-location .eslintcache",
+      "lint:fix": "eslint . --fix --cache --cache-location .eslintcache"
+    },
+    "devDependencies": {
+      "@eslint/js": "^9.39.4",
+      "@stylistic/eslint-plugin": "^5.10.0",
+      "eslint": "^9.39.4",
+      "eslint-plugin-jsx-a11y": "^6.10.2",
+      "eslint-plugin-perfectionist": "^5.9.0",
+      "eslint-plugin-react": "^7.37.5",
+      "eslint-plugin-react-hooks": "^7.1.1",
+      "eslint-plugin-react-refresh": "^0.5.2",
+      "globals": "^17.5.0",
+      "typescript-eslint": "^8.59.0"
+    }
+  },
+  "vscode": {
+    "settings": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnSave": false,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+      }
+    },
+    "extensions": ["dbaeumer.vscode-eslint"]
+  }
+}

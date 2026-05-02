@@ -1,0 +1,38 @@
+{
+  "id": "linter-eslint-next",
+  "name": "ESLint + Prettier",
+  "category": "linter",
+  "requires": [
+    "framework-next",
+    "formatter-prettier"
+  ],
+  "package": {
+    "scripts": {
+      "lint": "eslint . --cache --cache-location .eslintcache",
+      "lint:fix": "eslint . --fix --cache --cache-location .eslintcache"
+    },
+    "devDependencies": {
+      "@eslint/js": "^9.39.4",
+      "@next/eslint-plugin-next": "^16.2.4",
+      "@stylistic/eslint-plugin": "^5.10.0",
+      "eslint": "^9.39.4",
+      "eslint-plugin-jsx-a11y": "^6.10.2",
+      "eslint-plugin-perfectionist": "^5.9.0",
+      "eslint-plugin-react": "^7.37.5",
+      "eslint-plugin-react-compiler": "19.1.0-rc.2",
+      "eslint-plugin-react-hooks": "^7.1.1",
+      "globals": "^17.5.0",
+      "typescript-eslint": "^8.59.0"
+    }
+  },
+  "vscode": {
+    "settings": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnSave": false,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+      }
+    },
+    "extensions": ["dbaeumer.vscode-eslint"]
+  }
+}

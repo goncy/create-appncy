@@ -1,0 +1,29 @@
+{
+  "id": "linter-oxlint-next",
+  "name": "Oxlint + Oxfmt",
+  "category": "linter",
+  "requires": [
+    "framework-next",
+    "formatter-oxfmt"
+  ],
+  "package": {
+    "scripts": {
+      "lint": "oxlint",
+      "lint:fix": "oxlint --fix"
+    },
+    "devDependencies": {
+      "oxlint": "^1.62.0"
+    }
+  },
+  "vscode": {
+    "settings": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+      "editor.formatOnSave": false,
+      "editor.codeActionsOnSave": {
+        "source.format.oxc": "always",
+        "source.fixAll.oxc": "always"
+      }
+    },
+    "extensions": ["oxc.oxc-vscode"]
+  }
+}

@@ -1,6 +1,24 @@
 {
   "version": 1,
   "skills": {
+    "clack": {
+      "source": "alexeira/skills",
+      "sourceType": "github",
+      "skillPath": "clack/SKILL.md",
+      "computedHash": "e0f1b620b4dc19023f3f381a94c6856fe3b96dac605285b642acc961a67fe946"
+    },
+    "migrate-oxfmt": {
+      "source": "oxc-project/oxc",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/migrate-oxfmt/SKILL.md",
+      "computedHash": "b313a891bc4173aac0bd948d5e8c40f5dd921fe67eb5f51184c364e2b869f0e7"
+    },
+    "migrate-oxlint": {
+      "source": "oxc-project/oxc",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/migrate-oxlint/SKILL.md",
+      "computedHash": "80ce5201b1ef52d6cabe553a4cacfd6e1db97bad99618216b9cf9318d11d7e64"
+    },
     "shadcn": {
       "source": "shadcn/ui",
       "sourceType": "github",

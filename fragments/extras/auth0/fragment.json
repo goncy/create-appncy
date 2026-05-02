@@ -1,0 +1,7 @@
+{
+  "id": "extras-auth0",
+  "name": "Auth0",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "AUTH0.md"
+}

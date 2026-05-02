@@ -1,6 +1,7 @@
 node_modules
 temp
 dist
+.test-out
 .DS_Store
 .next
 

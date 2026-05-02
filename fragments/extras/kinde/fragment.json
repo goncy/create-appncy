@@ -1,0 +1,7 @@
+{
+  "id": "extras-kinde",
+  "name": "Kinde Auth",
+  "category": "extra",
+  "requires": ["framework-next"],
+  "docFile": "KINDE.md"
+}

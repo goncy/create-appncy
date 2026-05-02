@@ -4,10 +4,10 @@
   "homepage": "https://github.com/goncy/create-appncy",
   "items": [
     {
-      "name": "eslint-next-ts-tailwind",
+      "name": "eslint-next",
       "type": "registry:item",
-      "title": "ESLint - Next.js + TypeScript + TailwindCSS",
-      "description": "ESLint configuration for Next.js, TypeScript, and TailwindCSS projects",
+      "title": "ESLint + Prettier - Next.js",
+      "description": "ESLint + Prettier configuration for Next.js projects (TypeScript + Tailwind).",
       "devDependencies": [
         "@eslint/js",
         "@next/eslint-plugin-next",
@@ -27,9 +27,156 @@
       ],
       "files": [
         {
-          "path": "templates/next-eslint-ts-tw/project/eslint.config.mjs",
+          "path": "fragments/linter/eslint/next/files/eslint.config.mjs",
           "type": "registry:file",
           "target": "~/eslint.config.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/ignores.mjs",
+          "type": "registry:file",
+          "target": "~/linter/ignores.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/javascript.mjs",
+          "type": "registry:file",
+          "target": "~/linter/javascript.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/nextjs.mjs",
+          "type": "registry:file",
+          "target": "~/linter/nextjs.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/prettier.mjs",
+          "type": "registry:file",
+          "target": "~/linter/prettier.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/react.mjs",
+          "type": "registry:file",
+          "target": "~/linter/react.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/sort-imports.mjs",
+          "type": "registry:file",
+          "target": "~/linter/sort-imports.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/sort-jsx-props.mjs",
+          "type": "registry:file",
+          "target": "~/linter/sort-jsx-props.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/next/files/linter/stylistic.mjs",
+          "type": "registry:file",
+          "target": "~/linter/stylistic.mjs"
+        }
+      ]
+    },
+    {
+      "name": "eslint-react",
+      "type": "registry:item",
+      "title": "ESLint + Prettier - React (Vite)",
+      "description": "ESLint + Prettier configuration for React (Vite) projects (TypeScript + Tailwind).",
+      "devDependencies": [
+        "@eslint/js",
+        "@stylistic/eslint-plugin",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-perfectionist",
+        "eslint-plugin-prettier",
+        "eslint-plugin-react",
+        "eslint-plugin-react-hooks",
+        "eslint-plugin-react-refresh",
+        "globals",
+        "prettier",
+        "prettier-plugin-tailwindcss",
+        "typescript-eslint"
+      ],
+      "files": [
+        {
+          "path": "fragments/linter/eslint/vite/files/eslint.config.mjs",
+          "type": "registry:file",
+          "target": "~/eslint.config.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/ignores.mjs",
+          "type": "registry:file",
+          "target": "~/linter/ignores.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/javascript.mjs",
+          "type": "registry:file",
+          "target": "~/linter/javascript.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/prettier.mjs",
+          "type": "registry:file",
+          "target": "~/linter/prettier.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/react.mjs",
+          "type": "registry:file",
+          "target": "~/linter/react.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/react-refresh.mjs",
+          "type": "registry:file",
+          "target": "~/linter/react-refresh.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/sort-imports.mjs",
+          "type": "registry:file",
+          "target": "~/linter/sort-imports.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/sort-jsx-props.mjs",
+          "type": "registry:file",
+          "target": "~/linter/sort-jsx-props.mjs"
+        },
+        {
+          "path": "fragments/linter/eslint/vite/files/linter/stylistic.mjs",
+          "type": "registry:file",
+          "target": "~/linter/stylistic.mjs"
+        }
+      ]
+    },
+    {
+      "name": "oxlint-next",
+      "type": "registry:item",
+      "title": "Oxlint + Oxfmt - Next.js",
+      "description": "Oxlint + Oxfmt configuration for Next.js projects (TypeScript + Tailwind).",
+      "devDependencies": ["oxfmt", "oxlint"],
+      "files": [
+        {
+          "path": "fragments/linter/oxlint/next/files/.oxlintrc.json",
+          "type": "registry:file",
+          "target": "~/.oxlintrc.json"
+        },
+        {
+          "path": "fragments/formatter/oxfmt/files/.oxfmtrc.json",
+          "type": "registry:file",
+          "target": "~/.oxfmtrc.json"
+        }
+      ]
+    },
+    {
+      "name": "oxlint-react",
+      "type": "registry:item",
+      "title": "Oxlint + Oxfmt - React (Vite)",
+      "description": "Oxlint + Oxfmt configuration for React (Vite) projects (TypeScript + Tailwind).",
+      "devDependencies": ["oxfmt", "oxlint"],
+      "files": [
+        {
+          "path": "fragments/linter/oxlint/vite/files/.oxlintrc.json",
+          "type": "registry:file",
+          "target": "~/.oxlintrc.json"
+        },
+        {
+          "path": "fragments/formatter/oxfmt/files/.oxfmtrc.json",
+          "type": "registry:file",
+          "target": "~/.oxfmtrc.json"
         }
       ]
     }

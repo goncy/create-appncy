@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "oxlint-next",
+  "title": "Oxlint + Oxfmt - Next.js",
+  "description": "Oxlint + Oxfmt configuration for Next.js projects (TypeScript + Tailwind).",
+  "devDependencies": [
+    "oxfmt",
+    "oxlint"
+  ],
+  "files": [
+    {
+      "path": "fragments/linter/oxlint/next/files/.oxlintrc.json",
+      "content": "{\r\n  \"$schema\": \"./node_modules/oxlint/configuration_schema.json\",\r\n  \"plugins\": [\"typescript\", \"react\", \"jsx-a11y\", \"nextjs\", \"import\", \"unicorn\", \"oxc\"],\r\n  \"categories\": {\r\n    \"correctness\": \"error\"\r\n  },\r\n  \"env\": {\r\n    \"builtin\": true,\r\n    \"browser\": true,\r\n    \"node\": true,\r\n    \"es2024\": true\r\n  },\r\n  \"settings\": {\r\n    \"react\": {\r\n      \"version\": \"19.2.0\"\r\n    }\r\n  },\r\n  \"ignorePatterns\": [\r\n    \".next/**\",\r\n    \"out/**\",\r\n    \"build/**\",\r\n    \"dist/**\",\r\n    \"coverage/**\",\r\n    \"node_modules/**\",\r\n    \"next-env.d.ts\"\r\n  ],\r\n  \"rules\": {\r\n    \"no-console\": [\"warn\", {\"allow\": [\"error\"]}],\r\n    \"no-unused-vars\": [\r\n      \"warn\",\r\n      {\r\n        \"args\": \"after-used\",\r\n        \"ignoreRestSiblings\": false,\r\n        \"argsIgnorePattern\": \"^_.*?$\",\r\n        \"caughtErrorsIgnorePattern\": \"^_.*?$\"\r\n      }\r\n    ],\r\n\r\n    \"typescript/ban-ts-comment\": \"off\",\r\n    \"typescript/no-explicit-any\": \"off\",\r\n    \"typescript/no-inferrable-types\": \"off\",\r\n    \"typescript/no-non-null-assertion\": \"off\",\r\n\r\n    \"react/jsx-key\": \"warn\",\r\n    \"react/jsx-no-useless-fragment\": \"error\",\r\n    \"react/no-array-index-key\": \"off\",\r\n    \"react/self-closing-comp\": \"warn\",\r\n    \"react/jsx-curly-brace-presence\": [\"error\", {\"props\": \"never\", \"children\": \"never\"}],\r\n\r\n    \"jsx-a11y/click-events-have-key-events\": \"off\",\r\n\r\n    \"nextjs/no-img-element\": \"off\",\r\n\r\n    \"import/no-duplicates\": \"warn\",\r\n    \"import/no-named-as-default\": \"warn\"\r\n  },\r\n  \"overrides\": [\r\n    {\r\n      \"files\": [\"**/*.{ts,tsx,mts,cts}\"],\r\n      \"rules\": {\r\n        \"no-class-assign\": \"off\",\r\n        \"no-const-assign\": \"off\",\r\n        \"no-dupe-class-members\": \"off\",\r\n        \"no-dupe-keys\": \"off\",\r\n        \"no-func-assign\": \"off\",\r\n        \"no-import-assign\": \"off\",\r\n        \"no-new-native-nonconstructor\": \"off\",\r\n        \"no-obj-calls\": \"off\",\r\n        \"no-redeclare\": \"off\",\r\n        \"no-setter-return\": \"off\",\r\n        \"no-this-before-super\": \"off\",\r\n        \"no-unsafe-negation\": \"off\",\r\n        \"no-with\": \"off\"\r\n      }\r\n    }\r\n  ]\r\n}\r\n",
+      "type": "registry:file",
+      "target": "~/.oxlintrc.json"
+    },
+    {
+      "path": "fragments/formatter/oxfmt/files/.oxfmtrc.json",
+      "content": "{\r\n  \"$schema\": \"./node_modules/oxfmt/configuration_schema.json\",\r\n  \"printWidth\": 100,\r\n  \"trailingComma\": \"all\",\r\n  \"tabWidth\": 2,\r\n  \"semi\": true,\r\n  \"singleQuote\": false,\r\n  \"bracketSpacing\": false,\r\n  \"arrowParens\": \"always\",\r\n  \"sortImports\": {\r\n    \"groups\": [\r\n      \"type\",\r\n      \"builtin\",\r\n      \"external\",\r\n      \"internal\",\r\n      [\"parent\", \"sibling\", \"index\"],\r\n      \"side_effect_style\",\r\n      \"style\",\r\n      \"side_effect\",\r\n      \"unknown\"\r\n    ],\r\n    \"newlinesBetween\": true\r\n  },\r\n  \"sortTailwindcss\": {},\r\n  \"sortPackageJson\": false,\r\n  \"ignorePatterns\": []\r\n}\r\n",
+      "type": "registry:file",
+      "target": "~/.oxfmtrc.json"
+    }
+  ],
+  "type": "registry:item"
+}

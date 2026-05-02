@@ -154,7 +154,7 @@ The CLI will pick it up automatically the next time it runs (or after `pnpm buil
 
 ## Registry
 
-Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted at [appncy.goncy.dev](https://appncy.goncy.dev), so you can install presets (like ESLint configs) into any existing project.
+Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted at [appncy.goncy.dev](https://appncy.goncy.dev), so you can drop the linter + formatter combo from any preset into an existing project.
 
 ### Usage
 
@@ -163,13 +163,30 @@ Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted
 pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/<item>.json
 ```
 
-For example, to install the ESLint config for Next.js + TypeScript + TailwindCSS:
+### Available items
+
+Each item ships the linter config **and** its matching formatter config, and declares the right `devDependencies` so shadcn installs them for you:
+
+| Item            | Installs                                               |
+| --------------- | ------------------------------------------------------ |
+| `eslint-next`   | ESLint + Prettier config for Next.js                   |
+| `eslint-react`  | ESLint + Prettier config for React (Vite)              |
+| `oxlint-next`   | `.oxlintrc.json` + `.oxfmtrc.json` tuned for Next.js   |
+| `oxlint-react`  | `.oxlintrc.json` + `.oxfmtrc.json` tuned for React     |
+
+For example, to install ESLint + Prettier in an existing Next.js project:
 
 ```bash
-pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/eslint-next-ts-tailwind.json
+pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/eslint-next.json
 ```
 
-You can browse the available items at [appncy.goncy.dev](https://appncy.goncy.dev).
+Or Oxlint + Oxfmt in a React (Vite) project:
+
+```bash
+pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/oxlint-react.json
+```
+
+You can browse the full catalog at [appncy.goncy.dev](https://appncy.goncy.dev).
 
 ## Questions?
 

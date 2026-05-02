@@ -1,0 +1,79 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "eslint-react",
+  "title": "ESLint + Prettier - React (Vite)",
+  "description": "ESLint + Prettier configuration for React (Vite) projects (TypeScript + Tailwind).",
+  "devDependencies": [
+    "@eslint/js",
+    "@stylistic/eslint-plugin",
+    "eslint",
+    "eslint-config-prettier",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-perfectionist",
+    "eslint-plugin-prettier",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react-refresh",
+    "globals",
+    "prettier",
+    "prettier-plugin-tailwindcss",
+    "typescript-eslint"
+  ],
+  "files": [
+    {
+      "path": "fragments/linter/eslint/vite/files/eslint.config.mjs",
+      "content": "import {ignores} from \"./linter/ignores.mjs\";\r\nimport {javascript} from \"./linter/javascript.mjs\";\r\nimport {prettier} from \"./linter/prettier.mjs\";\r\nimport {react} from \"./linter/react.mjs\";\r\nimport {reactRefresh} from \"./linter/react-refresh.mjs\";\r\nimport {sortImports} from \"./linter/sort-imports.mjs\";\r\nimport {sortJsxProps} from \"./linter/sort-jsx-props.mjs\";\r\nimport {stylistic} from \"./linter/stylistic.mjs\";\r\n\r\n// Flat config only processes `.js`/`.mjs`/`.cjs` by default. Each section\r\n// declares its own `files` field where it needs to (e.g. JSX-only blocks\r\n// like a11y or `sort-jsx-props`); sections without `files` apply globally.\r\n\r\nexport default [\r\n  ...ignores,\r\n  ...javascript,\r\n  ...react,\r\n  ...reactRefresh,\r\n  ...sortImports,\r\n  ...sortJsxProps,\r\n  ...stylistic,\r\n  ...prettier,\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/eslint.config.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/ignores.mjs",
+      "content": "export const ignores = [\r\n  {\r\n    name: \"appncy/ignores\",\r\n    ignores: [\"dist/**\", \"build/**\", \"coverage/**\", \"node_modules/**\"],\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/ignores.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/javascript.mjs",
+      "content": "import js from \"@eslint/js\";\r\nimport globals from \"globals\";\r\nimport tseslint from \"typescript-eslint\";\r\n\r\n// Non type-aware on purpose: no `parserOptions.project`, which would force\r\n// a full TS program load on every lint pass.\r\nexport const javascript = tseslint.config({\r\n  name: \"appncy/javascript\",\r\n  files: [\"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}\"],\r\n  extends: [js.configs.recommended, tseslint.configs.recommended],\r\n  languageOptions: {\r\n    ecmaVersion: \"latest\",\r\n    sourceType: \"module\",\r\n    globals: {...globals.browser, ...globals.serviceworker},\r\n  },\r\n  rules: {\r\n    \"no-console\": [\"warn\", {allow: [\"error\"]}],\r\n    \"@typescript-eslint/no-unused-vars\": [\r\n      \"warn\",\r\n      {\r\n        args: \"after-used\",\r\n        ignoreRestSiblings: false,\r\n        argsIgnorePattern: \"^_.*?$\",\r\n        caughtErrorsIgnorePattern: \"^_.*?$\",\r\n      },\r\n    ],\r\n    \"@typescript-eslint/no-unsafe-member-access\": \"off\",\r\n    \"@typescript-eslint/no-confusing-void-expression\": \"off\",\r\n    \"@typescript-eslint/ban-ts-comment\": \"off\",\r\n    \"@typescript-eslint/no-explicit-any\": \"off\",\r\n    \"@typescript-eslint/no-inferrable-types\": \"off\",\r\n    \"@typescript-eslint/no-non-null-assertion\": \"off\",\r\n    // Optionals\r\n    // \"@typescript-eslint/no-floating-promises\": \"off\",\r\n  },\r\n});\r\n",
+      "type": "registry:file",
+      "target": "~/linter/javascript.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/prettier.mjs",
+      "content": "import prettierRecommended from \"eslint-plugin-prettier/recommended\";\r\n\r\n// Runs last so it overrides any stylistic rule still left on. Options are\r\n// inlined with `usePrettierrc: false` so the plugin skips the per-file\r\n// `prettier.resolveConfig` + `getFileInfo` calls that dominate its cost\r\n// (see prettier/eslint-plugin-prettier#445).\r\nexport const prettier = [\r\n  {\r\n    ...prettierRecommended,\r\n    name: \"appncy/prettier\",\r\n    rules: {\r\n      ...prettierRecommended.rules,\r\n      \"prettier/prettier\": [\r\n        \"warn\",\r\n        {\r\n          printWidth: 100,\r\n          trailingComma: \"all\",\r\n          tabWidth: 2,\r\n          semi: true,\r\n          singleQuote: false,\r\n          bracketSpacing: false,\r\n          arrowParens: \"always\",\r\n          endOfLine: \"auto\",\r\n          plugins: [\"prettier-plugin-tailwindcss\"],\r\n        },\r\n        {usePrettierrc: false},\r\n      ],\r\n    },\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/prettier.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/react.mjs",
+      "content": "import jsxA11y from \"eslint-plugin-jsx-a11y\";\r\nimport reactPlugin from \"eslint-plugin-react\";\r\nimport reactHooks from \"eslint-plugin-react-hooks\";\r\nimport tseslint from \"typescript-eslint\";\r\n\r\nexport const react = tseslint.config(\r\n  {\r\n    name: \"appncy/react\",\r\n    extends: [\r\n      reactPlugin.configs.flat.recommended,\r\n      reactPlugin.configs.flat[\"jsx-runtime\"],\r\n      reactHooks.configs.flat.recommended,\r\n    ],\r\n    settings: {react: {version: \"detect\"}},\r\n    rules: {\r\n      \"react/jsx-no-useless-fragment\": \"error\",\r\n      \"react/self-closing-comp\": \"warn\",\r\n      \"react/jsx-curly-brace-presence\": [\"error\", {props: \"never\", children: \"never\"}],\r\n    },\r\n  },\r\n  {\r\n    name: \"appncy/a11y\",\r\n    files: [\"**/*.{jsx,tsx}\"],\r\n    extends: [jsxA11y.flatConfigs.recommended],\r\n    rules: {\r\n      \"jsx-a11y/click-events-have-key-events\": \"off\",\r\n    },\r\n  },\r\n);\r\n",
+      "type": "registry:file",
+      "target": "~/linter/react.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/react-refresh.mjs",
+      "content": "import refreshPlugin from \"eslint-plugin-react-refresh\";\r\n\r\n// Vite/HMR-only: warns when a module exports something other than a\r\n// component, which would break Fast Refresh.\r\nexport const reactRefresh = [\r\n  {\r\n    name: \"appncy/react-refresh\",\r\n    files: [\"**/*.{jsx,tsx}\"],\r\n    plugins: {\"react-refresh\": refreshPlugin},\r\n    rules: {\r\n      \"react-refresh/only-export-components\": [\"warn\", {allowConstantExport: true}],\r\n    },\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/react-refresh.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/sort-imports.mjs",
+      "content": "import perfectionist from \"eslint-plugin-perfectionist\";\r\n\r\n// Replaces eslint-plugin-import (`import/order`) with a faster, Map-based\r\n// implementation.\r\nexport const sortImports = [\r\n  {\r\n    name: \"appncy/sort-imports\",\r\n    plugins: {perfectionist},\r\n    rules: {\r\n      \"perfectionist/sort-imports\": [\r\n        \"warn\",\r\n        {\r\n          type: \"natural\",\r\n          order: \"asc\",\r\n          newlinesBetween: 1,\r\n          internalPattern: [\"^@/.+\", \"^~/.+\"],\r\n          groups: [\r\n            \"type\",\r\n            \"builtin\",\r\n            \"external\",\r\n            \"internal\",\r\n            [\"parent\", \"sibling\", \"index\"],\r\n            \"side-effect\",\r\n            \"style\",\r\n            \"unknown\",\r\n          ],\r\n        },\r\n      ],\r\n      \"perfectionist/sort-named-imports\": [\"warn\", {type: \"natural\", order: \"asc\"}],\r\n    },\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/sort-imports.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/sort-jsx-props.mjs",
+      "content": "import perfectionist from \"eslint-plugin-perfectionist\";\r\n\r\n// Replaces `react/jsx-sort-props` (perfectionist/react recommend disabling\r\n// the react rule to avoid double-sorting).\r\nexport const sortJsxProps = [\r\n  {\r\n    name: \"appncy/sort-jsx-props\",\r\n    files: [\"**/*.{jsx,tsx}\"],\r\n    plugins: {perfectionist},\r\n    rules: {\r\n      \"perfectionist/sort-jsx-props\": [\r\n        \"warn\",\r\n        {\r\n          type: \"natural\",\r\n          order: \"asc\",\r\n          groups: [\"shorthand-prop\", \"multiline-prop\", \"unknown\", \"callback\"],\r\n          customGroups: [{groupName: \"callback\", elementNamePattern: \"^on[A-Z].*\"}],\r\n        },\r\n      ],\r\n    },\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/sort-jsx-props.mjs"
+    },
+    {
+      "path": "fragments/linter/eslint/vite/files/linter/stylistic.mjs",
+      "content": "import stylisticPlugin from \"@stylistic/eslint-plugin\";\r\n\r\n// `padding-line-between-statements` was removed from ESLint core's flat\r\n// defaults; @stylistic is the supported home for it now.\r\nexport const stylistic = [\r\n  {\r\n    name: \"appncy/stylistic\",\r\n    plugins: {\"@stylistic\": stylisticPlugin},\r\n    rules: {\r\n      \"@stylistic/padding-line-between-statements\": [\r\n        \"warn\",\r\n        {blankLine: \"always\", prev: \"*\", next: [\"return\", \"export\"]},\r\n        {blankLine: \"always\", prev: [\"const\", \"let\", \"var\"], next: \"*\"},\r\n        {blankLine: \"any\", prev: [\"const\", \"let\", \"var\"], next: [\"const\", \"let\", \"var\"]},\r\n      ],\r\n    },\r\n  },\r\n];\r\n",
+      "type": "registry:file",
+      "target": "~/linter/stylistic.mjs"
+    }
+  ],
+  "type": "registry:item"
+}

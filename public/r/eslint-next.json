@@ -74,6 +74,18 @@
       "content": "import stylisticPlugin from \"@stylistic/eslint-plugin\";\r\n\r\n// `padding-line-between-statements` was removed from ESLint core's flat\r\n// defaults; @stylistic is the supported home for it now.\r\nexport const stylistic = [\r\n  {\r\n    name: \"appncy/stylistic\",\r\n    plugins: {\"@stylistic\": stylisticPlugin},\r\n    rules: {\r\n      \"@stylistic/padding-line-between-statements\": [\r\n        \"warn\",\r\n        {blankLine: \"always\", prev: \"*\", next: [\"return\", \"export\"]},\r\n        {blankLine: \"always\", prev: [\"const\", \"let\", \"var\"], next: \"*\"},\r\n        {blankLine: \"any\", prev: [\"const\", \"let\", \"var\"], next: [\"const\", \"let\", \"var\"]},\r\n      ],\r\n    },\r\n  },\r\n];\r\n",
       "type": "registry:file",
       "target": "~/linter/stylistic.mjs"
+    },
+    {
+      "path": "registry-items/eslint-next/.vscode/settings.json",
+      "content": "{\n  \"editor.defaultFormatter\": \"dbaeumer.vscode-eslint\",\n  \"editor.formatOnSave\": false,\n  \"editor.codeActionsOnSave\": {\n    \"source.fixAll.eslint\": \"always\"\n  }\n}\n",
+      "type": "registry:file",
+      "target": "~/.vscode/settings.json"
+    },
+    {
+      "path": "registry-items/eslint-next/.vscode/extensions.json",
+      "content": "{\n  \"recommendations\": [\n    \"dbaeumer.vscode-eslint\",\n    \"esbenp.prettier-vscode\"\n  ]\n}\n",
+      "type": "registry:file",
+      "target": "~/.vscode/extensions.json"
     }
   ],
   "type": "registry:item"

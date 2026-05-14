@@ -70,6 +70,16 @@
           "path": "fragments/linter/eslint/next/files/linter/stylistic.mjs",
           "type": "registry:file",
           "target": "~/linter/stylistic.mjs"
+        },
+        {
+          "path": "registry-items/eslint-next/.vscode/settings.json",
+          "type": "registry:file",
+          "target": "~/.vscode/settings.json"
+        },
+        {
+          "path": "registry-items/eslint-next/.vscode/extensions.json",
+          "type": "registry:file",
+          "target": "~/.vscode/extensions.json"
         }
       ]
     },
@@ -139,6 +149,16 @@
           "path": "fragments/linter/eslint/vite/files/linter/stylistic.mjs",
           "type": "registry:file",
           "target": "~/linter/stylistic.mjs"
+        },
+        {
+          "path": "registry-items/eslint-react/.vscode/settings.json",
+          "type": "registry:file",
+          "target": "~/.vscode/settings.json"
+        },
+        {
+          "path": "registry-items/eslint-react/.vscode/extensions.json",
+          "type": "registry:file",
+          "target": "~/.vscode/extensions.json"
         }
       ]
     },
@@ -158,6 +178,16 @@
           "path": "fragments/formatter/oxfmt/files/.oxfmtrc.json",
           "type": "registry:file",
           "target": "~/.oxfmtrc.json"
+        },
+        {
+          "path": "registry-items/oxlint-next/.vscode/settings.json",
+          "type": "registry:file",
+          "target": "~/.vscode/settings.json"
+        },
+        {
+          "path": "registry-items/oxlint-next/.vscode/extensions.json",
+          "type": "registry:file",
+          "target": "~/.vscode/extensions.json"
         }
       ]
     },
@@ -177,6 +207,16 @@
           "path": "fragments/formatter/oxfmt/files/.oxfmtrc.json",
           "type": "registry:file",
           "target": "~/.oxfmtrc.json"
+        },
+        {
+          "path": "registry-items/oxlint-react/.vscode/settings.json",
+          "type": "registry:file",
+          "target": "~/.vscode/settings.json"
+        },
+        {
+          "path": "registry-items/oxlint-react/.vscode/extensions.json",
+          "type": "registry:file",
+          "target": "~/.vscode/extensions.json"
         }
       ]
     }

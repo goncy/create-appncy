@@ -165,14 +165,14 @@ pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/<item>.json
 
 ### Available items
 
-Each item ships the linter config **and** its matching formatter config, and declares the right `devDependencies` so shadcn installs them for you:
+Each item ships the linter config, its matching formatter config, the right `.vscode/settings.json` + `.vscode/extensions.json` so format-on-save / fix-on-save works out of the box, and declares the `devDependencies` so shadcn installs them for you:
 
-| Item            | Installs                                               |
-| --------------- | ------------------------------------------------------ |
-| `eslint-next`   | ESLint + Prettier config for Next.js                   |
-| `eslint-react`  | ESLint + Prettier config for React (Vite)              |
-| `oxlint-next`   | `.oxlintrc.json` + `.oxfmtrc.json` tuned for Next.js   |
-| `oxlint-react`  | `.oxlintrc.json` + `.oxfmtrc.json` tuned for React     |
+| Item            | Installs                                                                  |
+| --------------- | ------------------------------------------------------------------------- |
+| `eslint-next`   | ESLint + Prettier config for Next.js + `.vscode/` wiring                  |
+| `eslint-react`  | ESLint + Prettier config for React (Vite) + `.vscode/` wiring             |
+| `oxlint-next`   | `.oxlintrc.json` + `.oxfmtrc.json` tuned for Next.js + `.vscode/` wiring  |
+| `oxlint-react`  | `.oxlintrc.json` + `.oxfmtrc.json` tuned for React + `.vscode/` wiring    |
 
 For example, to install ESLint + Prettier in an existing Next.js project:
 

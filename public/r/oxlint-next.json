@@ -19,6 +19,18 @@
       "content": "{\r\n  \"$schema\": \"./node_modules/oxfmt/configuration_schema.json\",\r\n  \"printWidth\": 100,\r\n  \"trailingComma\": \"all\",\r\n  \"tabWidth\": 2,\r\n  \"semi\": true,\r\n  \"singleQuote\": false,\r\n  \"bracketSpacing\": false,\r\n  \"arrowParens\": \"always\",\r\n  \"sortImports\": {\r\n    \"groups\": [\r\n      \"type\",\r\n      \"builtin\",\r\n      \"external\",\r\n      \"internal\",\r\n      [\"parent\", \"sibling\", \"index\"],\r\n      \"side_effect_style\",\r\n      \"style\",\r\n      \"side_effect\",\r\n      \"unknown\"\r\n    ],\r\n    \"newlinesBetween\": true\r\n  },\r\n  \"sortTailwindcss\": {},\r\n  \"sortPackageJson\": false,\r\n  \"ignorePatterns\": []\r\n}\r\n",
       "type": "registry:file",
       "target": "~/.oxfmtrc.json"
+    },
+    {
+      "path": "registry-items/oxlint-next/.vscode/settings.json",
+      "content": "{\n  \"editor.defaultFormatter\": \"oxc.oxc-vscode\",\n  \"editor.formatOnSave\": false,\n  \"editor.codeActionsOnSave\": {\n    \"source.format.oxc\": \"always\",\n    \"source.fixAll.oxc\": \"always\"\n  }\n}\n",
+      "type": "registry:file",
+      "target": "~/.vscode/settings.json"
+    },
+    {
+      "path": "registry-items/oxlint-next/.vscode/extensions.json",
+      "content": "{\n  \"recommendations\": [\n    \"oxc.oxc-vscode\"\n  ]\n}\n",
+      "type": "registry:file",
+      "target": "~/.vscode/extensions.json"
     }
   ],
   "type": "registry:item"

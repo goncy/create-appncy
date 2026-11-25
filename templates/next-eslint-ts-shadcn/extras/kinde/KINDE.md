@@ -1,10 +1,13 @@
 # Kinde Auth module
+
 Instructions on how to setup Kinde auth on the app.
 
 ## 1. Create the Kinde project
+
 [Create a new Kinde project](https://kinde.com/).
 
 ## 2. Install Kinde dependency
+
 Install the Kinde dependency for Next.js:
 
 ```bash
@@ -12,6 +15,7 @@ pnpm add @kinde-oss/kinde-auth-nextjs
 ```
 
 ## 3. Copy all your Kinde environment variables
+
 Once you created the project you should see below all the environment variables needed for the project. Copy all of them and add them to your `.env.local` file.
 
 ```bash
@@ -24,9 +28,11 @@ KINDE_POST_LOGIN_REDIRECT_URL=
 ```
 
 ## 4. Use Kinde components and helpers
+
 Kinde has several helpers to get the user session and permissions. Also, it has some components to handle the login and register links.
 
 ### Components:
+
 ```tsx
 import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
@@ -37,6 +43,7 @@ import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 ```
 
 ### Server Components helper:
+
 ```ts
 const {
   getAccessToken,
@@ -50,7 +57,7 @@ const {
   getStringFlag,
   getUser,
   getUserOrganizations,
-  isAuthenticated
+  isAuthenticated,
 } = getKindeServerSession();
 
 console.log(await getAccessToken());
@@ -67,6 +74,7 @@ console.log(await isAuthenticated());
 ```
 
 ### Client Components helper:
+
 ```ts
 const {
   permissions,
@@ -86,7 +94,7 @@ const {
   getIdToken,
   getOrganization,
   getPermissions,
-  getUserOrganizations
+  getUserOrganizations,
 } = useKindeBrowserClient();
 
 console.log(getPermission("eat:chips"));
@@ -100,14 +108,15 @@ console.log(getClaim("aud"));
 ```
 
 ### Middleware:
+
 ```ts
 import {withAuth} from "@kinde-oss/kinde-auth-nextjs/middleware";
 
 export default function middleware(req) {
-    return withAuth(req);
+  return withAuth(req);
 }
 
 export const config = {
-    matcher: ["/admin"]
+  matcher: ["/admin"],
 };
 ```

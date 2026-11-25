@@ -1,7 +1,9 @@
 # LibSQL DB module
+
 Instructions on how to setup a libSQL DB on the app.
 
 ## 1. Install libSQL and Drizzle
+
 Install the libsql, drizzle-orm, drizzle-kit and better-sqlite3 packages:
 
 ```bash
@@ -10,6 +12,7 @@ pnpm add drizzle-kit@0.22.8 better-sqlite3 -D
 ```
 
 ## 2. Create the schema
+
 Go to `db/schema.ts` and create the schema for your database. Export a variable for every table you want to create:
 
 ```ts
@@ -21,25 +24,31 @@ export const todos = sqliteTable("todos", {
   done: int("done", {mode: "boolean"}),
 });
 ```
+
 > This will create a "todos" table with an id, text and done column.
 
 ## 3. Create the database
+
 Run the push command to let Drizzle create the tables:
 
 ```bash
 pnpm drizzle-kit push
 ```
+
 > Run this command anytime your schema changes.
 
 ## 4. Run Drizzle studio
+
 Let's add some data using Drizzle Studio:
 
 ```bash
 pnpm drizzle-kit studio
 ```
+
 > Add some data to the "todos" table.
 
 ## 5. Use the database
+
 Run queries in your server components to fetch data:
 
 ```tsx

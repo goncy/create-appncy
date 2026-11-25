@@ -1,9 +1,11 @@
 # Auth0 module
+
 Instructions on how to setup auth on the app.
 
 You can mostly follow up [this interactive guide](https://auth0.com/docs/quickstart/webapp/nextjs/interactive) to walk you through.
 
 ## 1. Create an Auth0 project
+
 [Create a new Auth0 project](https://manage.auth0.com/) and set the Callback URLs, Logout URLs and Allowed Web Origins:
 
 ```bash
@@ -18,6 +20,7 @@ http://localhost:3000
 ```
 
 ## 2. Install the Auth0 dependencies
+
 Install the Auth0 dependencies for Next.js:
 
 ```bash
@@ -25,6 +28,7 @@ pnpm add @auth0/nextjs-auth0
 ```
 
 ## 3. Configure environment variables
+
 Add the following variables to your `.env.local` file:
 
 ```bash
@@ -36,6 +40,7 @@ AUTH0_CLIENT_SECRET='<get this from Auth0>'
 ```
 
 ## 4. Create a dynamic route handler
+
 Create a `src/app/api/auth/[auth0]/route.ts` file with the following content:
 
 ```ts
@@ -45,6 +50,7 @@ export const GET = handleAuth() as () => Promise<void>;
 ```
 
 ## 5. Add the `UserProvider` component to the layout
+
 Wrap the root layout with the `UserProvider` component from `@auth0/nextjs-auth0/client`. This will let you access the session information within client components:
 
 ```tsx
@@ -52,10 +58,11 @@ Wrap the root layout with the `UserProvider` component from `@auth0/nextjs-auth0
 
 import {UserProvider} from "@/auth/provider";
 
-<UserProvider>{children}</UserProvider>
+<UserProvider>{children}</UserProvider>;
 ```
 
 ## 6. Add a login and logout link in the app and access the session information
+
 Add a link to login and logout in the app to let users handle their session:
 
 ```tsx

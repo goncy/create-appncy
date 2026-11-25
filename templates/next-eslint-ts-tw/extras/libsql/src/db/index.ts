@@ -1,5 +1,5 @@
-import Database from "libsql";
 import {drizzle} from "drizzle-orm/better-sqlite3";
+import Database from "libsql";
 
 import * as schema from "./schema";
 

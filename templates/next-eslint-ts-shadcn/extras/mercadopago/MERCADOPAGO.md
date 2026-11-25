@@ -1,7 +1,9 @@
 # Mercado Pago module
+
 Instructions on how to setup Mercado Pago on the app.
 
 ## 1. Create the Mercado Pago project
+
 [Create a new Mercado Pago integration](https://www.mercadopago.com.ar/developers/panel/app) and copy the `Access Token` to the `.env.local` file:
 
 ```bash
@@ -9,6 +11,7 @@ MP_ACCESS_TOKEN=
 ```
 
 ## 2. Install Mercado Pago dependencies
+
 Install the Mercado Pago dependency:
 
 ```bash
@@ -16,6 +19,7 @@ pnpm add mercadopago
 ```
 
 ## 3. Create a preference
+
 From the server, you can create a preference (a description of something you want to sell), using the `@/payment/api` helper:
 
 ```ts
@@ -40,6 +44,7 @@ function createTicket(title: string, amount: number) {
 ```
 
 ## 4. Verify payments
+
 Head to your Mercado Pago integration and in the `Webhooks` section, set the URL to be `https://your-app.com/payment` and select `Payments` on events.
 
 > You can use [`cloudflared`](https://github.com/cloudflare/cloudflared) (cloudflared --url localhost:3000) to test the webhook locally. Your webhook URL will be `https://your-cloudflared-url.com/payment`.
@@ -59,4 +64,5 @@ export async function POST(request: NextRequest) {
   return Response.json({success: true});
 }
 ```
+
 > This route will receive payment notifications from Mercado Pago and validate that the payment exists. In production you should include a validation with the `secret` provided when creating the webhook.

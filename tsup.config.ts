@@ -5,6 +5,8 @@ import {fileURLToPath} from "node:url";
 
 export default defineConfig({
   entry: ["index.ts"],
+  format: ["esm"],
+  target: "node20",
   splitting: false,
   sourcemap: true,
   clean: true,

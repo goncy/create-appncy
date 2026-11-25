@@ -4,4 +4,8 @@ import App from "./App.tsx";
 
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+const root = document.getElementById("root");
+
+if (!root) throw new Error("Missing #root element");
+
+ReactDOM.createRoot(root).render(<App />);

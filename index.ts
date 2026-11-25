@@ -12,15 +12,15 @@ import {hideBin} from "yargs/helpers";
 // List of templates
 const TEMPLATES = [
   {
-    title: "Next.js + ESLint + TypeScript + Shadcn/ui",
+    title: "Next.js + Oxlint + TypeScript + Shadcn/ui",
     value: "next-eslint-ts-shadcn",
   },
   {
-    title: "Next.js + ESLint + TypeScript + Tailwind",
+    title: "Next.js + Oxlint + TypeScript + Tailwind",
     value: "next-eslint-ts-tw",
   },
   {
-    title: "React (vite) + ESLint + TypeScript + Tailwind",
+    title: "React (vite) + Oxlint + TypeScript + Tailwind",
     value: "react-eslint-ts-tw",
   },
 ];

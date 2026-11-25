@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "bracketSpacing": false,
+  "sortImports": {
+    "internalPattern": ["@/"],
+    "groups": [
+      "type",
+      "builtin",
+      "external",
+      "internal",
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ]
+  },
+  "sortTailwindcss": {"stylesheet": "./src/index.css", "functions": ["cn", "cva"]}
+}

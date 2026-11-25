@@ -1,11 +1,11 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "nextjs"],
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y"],
   "jsPlugins": ["./oxlint-plugin.mjs"],
   "categories": {"correctness": "error", "suspicious": "warn"},
   "options": {"typeAware": true, "reportUnusedDisableDirectives": "warn"},
   "env": {"browser": true, "node": true},
-  "ignorePatterns": ["next-env.d.ts", "oxlint-plugin.mjs"],
+  "ignorePatterns": ["oxlint-plugin.mjs"],
   "rules": {
     // JavaScript
     "no-console": ["warn", {"allow": ["error"]}],
@@ -104,7 +104,7 @@
     "react/rules-of-hooks": "error",
     "react/self-closing-comp": "warn",
     "jsx-a11y/click-events-have-key-events": "off",
-    "nextjs/no-img-element": "off",
+    "react/only-export-components": "warn",
 
     // Local rules (./oxlint-plugin.mjs)
     "appncy/padding-lines": "warn",

@@ -1,11 +1,11 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "react", "jsx-a11y"],
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "nextjs"],
   "jsPlugins": ["./oxlint-plugin.mjs"],
   "categories": {"correctness": "error", "suspicious": "warn"},
   "options": {"typeAware": true, "reportUnusedDisableDirectives": "warn"},
   "env": {"browser": true, "node": true},
-  "ignorePatterns": ["oxlint-plugin.mjs"],
+  "ignorePatterns": ["next-env.d.ts", "oxlint-plugin.mjs"],
   "rules": {
     // JavaScript
     "no-console": ["warn", {"allow": ["error"]}],
@@ -22,9 +22,9 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
 
-    // TypeScript: typescript-eslint `strictTypeChecked` + `stylisticTypeChecked`, minus
-    // `no-explicit-any`, `no-unsafe-member-access`, `no-confusing-void-expression`,
-    // `ban-ts-comment` and `no-inferrable-types`. The rest are in the categories above.
+    // TypeScript: strict + stylistic type-aware rules, except `no-explicit-any`,
+    // `no-unsafe-member-access`, `no-confusing-void-expression`, `ban-ts-comment` and
+    // `no-inferrable-types`. The rest are in the categories above.
     "typescript/adjacent-overload-signatures": "error",
     "typescript/array-type": "error",
     "typescript/ban-tslint-comment": "error",
@@ -104,7 +104,7 @@
     "react/rules-of-hooks": "error",
     "react/self-closing-comp": "warn",
     "jsx-a11y/click-events-have-key-events": "off",
-    "react/only-export-components": "warn",
+    "nextjs/no-img-element": "off",
 
     // Local rules (./oxlint-plugin.mjs)
     "appncy/padding-lines": "warn",

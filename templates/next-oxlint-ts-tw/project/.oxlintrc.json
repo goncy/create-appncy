@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "nextjs"],
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "nextjs"],
   "jsPlugins": ["./oxlint-plugin.mjs"],
   "categories": {"correctness": "error", "suspicious": "warn"},
   "options": {"typeAware": true, "reportUnusedDisableDirectives": "warn"},
@@ -22,9 +22,9 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
 
-    // TypeScript: typescript-eslint `strictTypeChecked` + `stylisticTypeChecked`, minus
-    // `no-explicit-any`, `no-unsafe-member-access`, `no-confusing-void-expression`,
-    // `ban-ts-comment` and `no-inferrable-types`. The rest are in the categories above.
+    // TypeScript: strict + stylistic type-aware rules, except `no-explicit-any`,
+    // `no-unsafe-member-access`, `no-confusing-void-expression`, `ban-ts-comment` and
+    // `no-inferrable-types`. The rest are in the categories above.
     "typescript/adjacent-overload-signatures": "error",
     "typescript/array-type": "error",
     "typescript/ban-tslint-comment": "error",

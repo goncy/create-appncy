@@ -11,17 +11,17 @@
       "devDependencies": ["oxfmt", "oxlint", "oxlint-tsgolint"],
       "files": [
         {
-          "path": "templates/next-eslint-ts-tw/project/.oxlintrc.json",
+          "path": "templates/next-oxlint-ts-tw/project/.oxlintrc.json",
           "type": "registry:file",
           "target": "~/.oxlintrc.json"
         },
         {
-          "path": "templates/next-eslint-ts-tw/project/.oxfmtrc.json",
+          "path": "templates/next-oxlint-ts-tw/project/.oxfmtrc.json",
           "type": "registry:file",
           "target": "~/.oxfmtrc.json"
         },
         {
-          "path": "templates/next-eslint-ts-tw/project/oxlint-plugin.mjs",
+          "path": "templates/next-oxlint-ts-tw/project/oxlint-plugin.mjs",
           "type": "registry:file",
           "target": "~/oxlint-plugin.mjs"
         }

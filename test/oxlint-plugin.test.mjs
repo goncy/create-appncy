@@ -3,7 +3,7 @@ import {describe, it} from "node:test";
 import assert from "node:assert/strict";
 import {RuleTester} from "oxlint/plugins-dev";
 
-import plugin from "../templates/next-eslint-ts-shadcn/project/oxlint-plugin.mjs";
+import plugin from "../templates/next-oxlint-ts-shadcn/project/oxlint-plugin.mjs";
 
 RuleTester.describe = describe;
 RuleTester.it = it;
@@ -12,7 +12,7 @@ const tester = new RuleTester({languageOptions: {parserOptions: {lang: "tsx"}}})
 
 it("every template ships the same oxlint-plugin.mjs", async () => {
   const [source, ...copies] = await Promise.all(
-    ["next-eslint-ts-shadcn", "next-eslint-ts-tw", "react-eslint-ts-tw"].map((template) =>
+    ["next-oxlint-ts-shadcn", "next-oxlint-ts-tw", "react-oxlint-ts-tw"].map((template) =>
       readFile(
         new URL(`../templates/${template}/project/oxlint-plugin.mjs`, import.meta.url),
         "utf8",

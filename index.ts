@@ -12,22 +12,22 @@ import {hideBin} from "yargs/helpers";
 // List of templates
 const TEMPLATES = [
   {
-    title: "Next.js + ESLint + TypeScript + Shadcn/ui",
-    value: "next-eslint-ts-shadcn",
+    title: "Next.js + Oxlint + TypeScript + Shadcn/ui",
+    value: "next-oxlint-ts-shadcn",
   },
   {
-    title: "Next.js + ESLint + TypeScript + Tailwind",
-    value: "next-eslint-ts-tw",
+    title: "Next.js + Oxlint + TypeScript + Tailwind",
+    value: "next-oxlint-ts-tw",
   },
   {
-    title: "React (vite) + ESLint + TypeScript + Tailwind",
-    value: "react-eslint-ts-tw",
+    title: "React (vite) + Oxlint + TypeScript + Tailwind",
+    value: "react-oxlint-ts-tw",
   },
 ];
 
 // List of extras
 const EXTRAS = {
-  "next-eslint-ts-shadcn": [
+  "next-oxlint-ts-shadcn": [
     {
       title: "Mercado Pago",
       value: "mercadopago",
@@ -53,7 +53,7 @@ const EXTRAS = {
       value: "libsql",
     },
   ],
-  "next-eslint-ts-tw": [
+  "next-oxlint-ts-tw": [
     {
       title: "Mercado Pago",
       value: "mercadopago",

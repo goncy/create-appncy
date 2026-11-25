@@ -26,7 +26,7 @@ pnpm install -g create-appncy
 
 ## Registry
 
-Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted at [appncy.goncy.dev](https://appncy.goncy.dev), so you can install presets (like ESLint configs) into any existing project.
+Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted at [appncy.goncy.dev](https://appncy.goncy.dev), so you can install presets (like Oxlint configs) into any existing project.
 
 ### Usage
 
@@ -35,10 +35,10 @@ Appncy also exposes a [shadcn](https://ui.shadcn.com) compatible registry hosted
 pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/<item>.json
 ```
 
-For example, to install the ESLint config for Next.js + TypeScript + TailwindCSS:
+For example, to install the Oxlint + Oxfmt config for Next.js + TypeScript + TailwindCSS:
 
 ```bash
-pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/eslint-next-ts-tailwind.json
+pnpm dlx shadcn@latest add https://appncy.goncy.dev/r/oxlint-next-ts-tailwind.json
 ```
 
 You can browse the available items at [appncy.goncy.dev](https://appncy.goncy.dev).

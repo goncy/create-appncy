@@ -1,0 +1,113 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y"],
+  "jsPlugins": ["./oxlint-plugin.mjs"],
+  "categories": {"correctness": "error", "suspicious": "warn"},
+  "options": {"typeAware": true, "reportUnusedDisableDirectives": "warn"},
+  "env": {"browser": true, "node": true},
+  "ignorePatterns": ["oxlint-plugin.mjs"],
+  "rules": {
+    // JavaScript
+    "no-console": ["warn", {"allow": ["error"]}],
+    "no-unused-vars": ["warn", {"argsIgnorePattern": "^_", "caughtErrorsIgnorePattern": "^_"}],
+    "no-array-constructor": "error",
+    "no-case-declarations": "error",
+    "no-empty": "error",
+    "no-empty-function": "error",
+    "no-fallthrough": "error",
+    "no-prototype-builtins": "error",
+    "no-regex-spaces": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+
+    // TypeScript: strict + stylistic type-aware rules, except `no-explicit-any`,
+    // `no-unsafe-member-access`, `no-confusing-void-expression`, `ban-ts-comment` and
+    // `no-inferrable-types`. The rest are in the categories above.
+    "typescript/adjacent-overload-signatures": "error",
+    "typescript/array-type": "error",
+    "typescript/ban-tslint-comment": "error",
+    "typescript/class-literal-property-style": "error",
+    "typescript/consistent-generic-constructors": "error",
+    "typescript/consistent-indexed-object-style": "error",
+    "typescript/consistent-type-assertions": "error",
+    "typescript/consistent-type-definitions": "error",
+    "typescript/dot-notation": "error",
+    "typescript/no-deprecated": "error",
+    "typescript/no-dynamic-delete": "error",
+    "typescript/no-empty-object-type": "error",
+    "typescript/no-invalid-void-type": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-mixed-enums": "error",
+    "typescript/no-namespace": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/no-require-imports": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-function-type": "error",
+    "typescript/no-unsafe-return": "error",
+    "typescript/non-nullable-type-assertion-style": "error",
+    "typescript/only-throw-error": "error",
+    "typescript/prefer-find": "error",
+    "typescript/prefer-for-of": "error",
+    "typescript/prefer-function-type": "error",
+    "typescript/prefer-includes": "error",
+    "typescript/prefer-literal-enum-member": "error",
+    "typescript/prefer-nullish-coalescing": "error",
+    "typescript/prefer-promise-reject-errors": "error",
+    "typescript/prefer-reduce-type-parameter": "error",
+    "typescript/prefer-regexp-exec": "error",
+    "typescript/prefer-return-this-type": "error",
+    "typescript/prefer-string-starts-ends-with": "error",
+    "typescript/related-getter-setter-pairs": "error",
+    "typescript/require-await": "error",
+    "typescript/restrict-plus-operands": [
+      "error",
+      {
+        "allowAny": false,
+        "allowBoolean": false,
+        "allowNullish": false,
+        "allowNumberAndString": false,
+        "allowRegExp": false
+      }
+    ],
+    "typescript/restrict-template-expressions": [
+      "error",
+      {
+        "allowAny": false,
+        "allowBoolean": false,
+        "allowNever": false,
+        "allowNullish": false,
+        "allowNumber": false,
+        "allowRegExp": false
+      }
+    ],
+    "typescript/return-await": ["error", "error-handling-correctness-only"],
+    "typescript/unified-signatures": "error",
+    "typescript/use-unknown-in-catch-callback-variable": "error",
+
+    // Imports (sorting is done by oxfmt)
+    "import/no-duplicates": "warn",
+    "import/no-unassigned-import": ["warn", {"allow": ["**/*.css"]}],
+
+    // React
+    "react/display-name": "error",
+    "react/jsx-curly-brace-presence": ["error", {"props": "never", "children": "never"}],
+    "react/jsx-key": "warn",
+    "react/jsx-no-target-blank": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/no-unescaped-entities": "error",
+    "react/no-unknown-property": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/rules-of-hooks": "error",
+    "react/self-closing-comp": "warn",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/only-export-components": "warn",
+
+    // Local rules (./oxlint-plugin.mjs)
+    "appncy/padding-lines": "warn",
+    "appncy/sort-jsx-props": "warn"
+  }
+}
